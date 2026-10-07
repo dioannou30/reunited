@@ -9,10 +9,10 @@ export const sources = {
     origin: 'Gaza',
     url: 'https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-x32jf',
   },
-  net: {
-    name: 'Al Shbak / The Net (الشباك)',
-    origin: 'Unspecified',
-    url: 'https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-75dtb',
+  keffiyeh: {
+    name: 'Kufiya: fishnet, olive leaves and bold lines (كوفية)',
+    origin: 'Hirbawi factory, Hebron (reference)',
+    url: 'https://hirbawiusa.com/products/black-and-white',
   },
   olive: {
     name: 'Irq Al Zaytoun / Olive Branch (1) (عرق الزيتون)',
@@ -58,18 +58,6 @@ export const cypress = [
   '....b.a.....',
   '............',
   '............',
-]
-
-export const net = [
-  'a.a.aa.a.a',
-  '.a.a..a.a.',
-  '..a....a..',
-  '..a....a..',
-  '.a.a..a.a.',
-  '..a....a..',
-  '..a....a..',
-  '.aaa..aaa.',
-  'aaaaaaaaaa',
 ]
 
 export const olive = [
