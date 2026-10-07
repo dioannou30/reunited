@@ -17,7 +17,7 @@ export function Hero() {
             <span>{hero.eyebrow[1]}</span>
           </p>
           <h1 id="hero-title" className={classes.title}>
-            <span className={classes.wordmark}>
+            <span className={classes.wordmark} dir="ltr">
               <span className={classes.re}>Re</span>United
             </span>
             <span className={classes.subtitle}>{hero.subtitle}</span>
