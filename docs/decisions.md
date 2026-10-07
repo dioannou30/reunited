@@ -152,7 +152,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - **Only real traditional motifs, never invented ones.**
   - Keffiyeh fishnet, plus tatreez (Palestinian cross-stitch) motifs identified by name and region.
   - Cross-stitch is grid-based, so each motif is encoded as a stitch grid and rendered to SVG, with slight per-stitch irregularity so it looks hand-sewn.
-  - The provenance of each motif is documented.
+  - The provenance of each motif is documented in [motifs.md](motifs.md). Preferred source: Tirazain, which allows website use with attribution.
 - The mockup's illustrations (olive branches, birds, torn paper, sepia town) still need a source: an illustrator, licensed assets, or SVG drawn by us.
 
 ## Greek copy
@@ -168,7 +168,10 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - "Υπόγραψε" appears twice in the menu: one page or two?
 - Do top-level menu items get their own pages?
 - The mockup photo looks AI-generated: real photos with consent, or illustration?
-- Handwriting for display text. Options: custom SVG lettering for fixed headlines; commercial Greek brush fonts (e.g. George Bourle, Nantia.co) plus an Arabic marker face (e.g. 29LT Massira); or a font made from a campaign member's handwriting.
+- Handwriting for display text. Options:
+  - custom SVG lettering for fixed headlines
+  - paid fonts: George Bourle "Theologos" brush (Latin + Greek, OTF/TTF, web licence €78) and 29LT Massira (Arabic, Ruqaa-based protest-graffiti hand; Pen/TippEx/Lipstick/Spray at €25 each or €70 for the bundle; rentable on Fontstand for testing)
+  - a font made from a campaign member's handwriting
 - Which tatreez motifs and regions the campaign prefers.
 - A mobile version of the mockup.
 - Does Arabic launch with content?
