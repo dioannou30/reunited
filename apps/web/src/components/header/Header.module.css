@@ -5,6 +5,13 @@
   background-color: var(--mantine-color-body);
 }
 
+.header::after {
+  content: "";
+  display: block;
+  height: 1.25rem;
+  background: url("/motifs/band.svg") repeat-x left center / auto 100%;
+}
+
 .inner {
   display: flex;
   align-items: center;
@@ -165,6 +172,12 @@
 
 .drawerLang {
   justify-content: center;
+}
+
+@media (min-width: 62em) {
+  .header::after {
+    display: none;
+  }
 }
 
 @media (min-width: 75em) {

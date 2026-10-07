@@ -135,12 +135,44 @@ function keffiyeh({ seed = 3 } = {}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${stripes.join('')}<path d="${stem.join('')}" stroke="${ink}" stroke-width="0.9" fill="none"/>${leaves.join('')}<path d="${net.join('')}" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
 }
 
+function horizontal(svg) {
+  const [, w, h] = svg.match(/width="([\d.]+)" height="([\d.]+)"/)
+  const inner = svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '')
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${h}" height="${w}" viewBox="0 0 ${h} ${w}"><g transform="translate(${h} 0) rotate(90)">${inner}</g></svg>`
+}
+
+function tornMask({ seed = 41, width = 1000, height = 600, step = 14, depth = 9 } = {}) {
+  const rand = seeded(seed)
+  const edge = (from, to, fixed, axis) => {
+    const points = []
+    const count = Math.round(Math.abs(to - from) / step)
+    for (let i = 0; i <= count; i++) {
+      const t = from + ((to - from) * i) / count
+      const d = rand() * depth * (rand() > 0.85 ? 1.8 : 1)
+      const inset = fixed === 0 ? d : fixed - d
+      points.push(axis === 'x' ? [t, inset] : [inset, t])
+    }
+    return points
+  }
+  const points = [
+    ...edge(0, width, 0, 'x'),
+    ...edge(0, height, width, 'y'),
+    ...edge(width, 0, height, 'x'),
+    ...edge(height, 0, 0, 'y'),
+  ]
+  const d = `M${points.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z`
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none"><path d="${d}" fill="#000"/></svg>`
+}
+
 const palette = { r: colors.red, g: colors.green, k: colors.ink }
 
 mkdirSync(outDir, { recursive: true })
 const files = {
   'border-right.svg': render(right, palette, { seed: 11 }),
   'border-left.svg': keffiyeh(),
+  'band.svg': horizontal(keffiyeh()),
+  'torn-mask.svg': tornMask(),
+  'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
   'olive-branch.svg': render(recolor(olive, { a: 'r' }), palette, { seed: 5 }),
 }
 for (const [name, svg] of Object.entries(files)) {
