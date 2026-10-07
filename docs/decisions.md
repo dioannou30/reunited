@@ -142,12 +142,18 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 ### Typography (under review)
 
 - **Installed for now:** Commissioner for headings, Noto Sans for body, Noto Sans Arabic.
-- **The mockup uses handwritten headings,** and handwriting fonts with good Greek are rare. To be decided: find or buy one, or keep the handwriting for the logo and a few SVG headlines.
+- **Logo:** the "ReUnited" lettering is used as an SVG of the original artwork. A vector or high-res source is needed from the campaign.
+- **Handwriting:** the free Greek handwriting fonts (Playpen Sans + Playpen Sans Arabic, Mansalva) were rejected as too "comic". Still open (see below).
 
-### Keffiyeh motifs
+### Side patterns (keffiyeh and tatreez)
 
-- Net, olive-leaf wave, bold stripes and red zigzag, drawn with CSS masks and inline SVG rather than images.
-- Dimitri likes the 44px ink band with the faint net pattern and red borders.
+- **Decided: tileable SVG strips**, repeated vertically as two `body` background layers (left and right) and recoloured through `mask` with theme colours. They weigh 1–3 KB and stay sharp at any DPI.
+- On mobile the side borders are replaced by a horizontal band, the 44px ink band with the net pattern and red borders that Dimitri likes.
+- **Only real traditional motifs, never invented ones.**
+  - Keffiyeh fishnet, plus tatreez (Palestinian cross-stitch) motifs identified by name and region.
+  - Cross-stitch is grid-based, so each motif is encoded as a stitch grid and rendered to SVG, with slight per-stitch irregularity so it looks hand-sewn.
+  - The provenance of each motif is documented.
+- The mockup's illustrations (olive branches, birds, torn paper, sepia town) still need a source: an illustrator, licensed assets, or SVG drawn by us.
 
 ## Greek copy
 
@@ -162,7 +168,8 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - "Υπόγραψε" appears twice in the menu: one page or two?
 - Do top-level menu items get their own pages?
 - The mockup photo looks AI-generated: real photos with consent, or illustration?
-- A handwritten Greek font.
+- Handwriting for display text. Options: custom SVG lettering for fixed headlines; commercial Greek brush fonts (e.g. George Bourle, Nantia.co) plus an Arabic marker face (e.g. 29LT Massira); or a font made from a campaign member's handwriting.
+- Which tatreez motifs and regions the campaign prefers.
 - A mobile version of the mockup.
 - Does Arabic launch with content?
 - Backups: Neon restore plus occasional dumps for the database, and R2 for media.
