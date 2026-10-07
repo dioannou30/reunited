@@ -11,6 +11,7 @@ import mantineCss from '@mantine/core/styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, HeadContent, Scripts } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { Navbar } from '@/components/Navbar'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import { cssVariablesResolver, theme } from '@/theme'
@@ -49,6 +50,7 @@ function RootDocument({ children }: { children: ReactNode }) {
             cssVariablesResolver={cssVariablesResolver}
             defaultColorScheme="light"
           >
+            <Navbar />
             {children}
           </MantineProvider>
         </DirectionProvider>

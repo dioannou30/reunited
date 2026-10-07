@@ -10,33 +10,181 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutHowItStartedRouteImport } from './routes/about/how-it-started'
+import { Route as AboutTeamRouteImport } from './routes/about/team'
+import { Route as CampaignActionsRouteImport } from './routes/campaign/actions'
+import { Route as CampaignSignRouteImport } from './routes/campaign/sign'
+import { Route as HelpGetInvolvedRouteImport } from './routes/help/get-involved'
+import { Route as HelpSupportTheAppealRouteImport } from './routes/help/support-the-appeal'
+import { Route as IssueFamilyReunificationRouteImport } from './routes/issue/family-reunification'
+import { Route as IssueOurDemandsRouteImport } from './routes/issue/our-demands'
+import { Route as IssueWhereItStallsRouteImport } from './routes/issue/where-it-stalls'
+import { Route as TestimoniesGazaRouteImport } from './routes/testimonies/gaza'
+import { Route as TestimoniesGreeceRouteImport } from './routes/testimonies/greece'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutHowItStartedRoute = AboutHowItStartedRouteImport.update({
+  id: '/about/how-it-started',
+  path: '/about/how-it-started',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutTeamRoute = AboutTeamRouteImport.update({
+  id: '/about/team',
+  path: '/about/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignActionsRoute = CampaignActionsRouteImport.update({
+  id: '/campaign/actions',
+  path: '/campaign/actions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignSignRoute = CampaignSignRouteImport.update({
+  id: '/campaign/sign',
+  path: '/campaign/sign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpGetInvolvedRoute = HelpGetInvolvedRouteImport.update({
+  id: '/help/get-involved',
+  path: '/help/get-involved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpSupportTheAppealRoute = HelpSupportTheAppealRouteImport.update({
+  id: '/help/support-the-appeal',
+  path: '/help/support-the-appeal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssueFamilyReunificationRoute =
+  IssueFamilyReunificationRouteImport.update({
+    id: '/issue/family-reunification',
+    path: '/issue/family-reunification',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IssueOurDemandsRoute = IssueOurDemandsRouteImport.update({
+  id: '/issue/our-demands',
+  path: '/issue/our-demands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IssueWhereItStallsRoute = IssueWhereItStallsRouteImport.update({
+  id: '/issue/where-it-stalls',
+  path: '/issue/where-it-stalls',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimoniesGazaRoute = TestimoniesGazaRouteImport.update({
+  id: '/testimonies/gaza',
+  path: '/testimonies/gaza',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimoniesGreeceRoute = TestimoniesGreeceRouteImport.update({
+  id: '/testimonies/greece',
+  path: '/testimonies/greece',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about/how-it-started': typeof AboutHowItStartedRoute
+  '/about/team': typeof AboutTeamRoute
+  '/campaign/actions': typeof CampaignActionsRoute
+  '/campaign/sign': typeof CampaignSignRoute
+  '/help/get-involved': typeof HelpGetInvolvedRoute
+  '/help/support-the-appeal': typeof HelpSupportTheAppealRoute
+  '/issue/family-reunification': typeof IssueFamilyReunificationRoute
+  '/issue/our-demands': typeof IssueOurDemandsRoute
+  '/issue/where-it-stalls': typeof IssueWhereItStallsRoute
+  '/testimonies/gaza': typeof TestimoniesGazaRoute
+  '/testimonies/greece': typeof TestimoniesGreeceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about/how-it-started': typeof AboutHowItStartedRoute
+  '/about/team': typeof AboutTeamRoute
+  '/campaign/actions': typeof CampaignActionsRoute
+  '/campaign/sign': typeof CampaignSignRoute
+  '/help/get-involved': typeof HelpGetInvolvedRoute
+  '/help/support-the-appeal': typeof HelpSupportTheAppealRoute
+  '/issue/family-reunification': typeof IssueFamilyReunificationRoute
+  '/issue/our-demands': typeof IssueOurDemandsRoute
+  '/issue/where-it-stalls': typeof IssueWhereItStallsRoute
+  '/testimonies/gaza': typeof TestimoniesGazaRoute
+  '/testimonies/greece': typeof TestimoniesGreeceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about/how-it-started': typeof AboutHowItStartedRoute
+  '/about/team': typeof AboutTeamRoute
+  '/campaign/actions': typeof CampaignActionsRoute
+  '/campaign/sign': typeof CampaignSignRoute
+  '/help/get-involved': typeof HelpGetInvolvedRoute
+  '/help/support-the-appeal': typeof HelpSupportTheAppealRoute
+  '/issue/family-reunification': typeof IssueFamilyReunificationRoute
+  '/issue/our-demands': typeof IssueOurDemandsRoute
+  '/issue/where-it-stalls': typeof IssueWhereItStallsRoute
+  '/testimonies/gaza': typeof TestimoniesGazaRoute
+  '/testimonies/greece': typeof TestimoniesGreeceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about/how-it-started'
+    | '/about/team'
+    | '/campaign/actions'
+    | '/campaign/sign'
+    | '/help/get-involved'
+    | '/help/support-the-appeal'
+    | '/issue/family-reunification'
+    | '/issue/our-demands'
+    | '/issue/where-it-stalls'
+    | '/testimonies/gaza'
+    | '/testimonies/greece'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about/how-it-started'
+    | '/about/team'
+    | '/campaign/actions'
+    | '/campaign/sign'
+    | '/help/get-involved'
+    | '/help/support-the-appeal'
+    | '/issue/family-reunification'
+    | '/issue/our-demands'
+    | '/issue/where-it-stalls'
+    | '/testimonies/gaza'
+    | '/testimonies/greece'
+  id:
+    | '__root__'
+    | '/'
+    | '/about/how-it-started'
+    | '/about/team'
+    | '/campaign/actions'
+    | '/campaign/sign'
+    | '/help/get-involved'
+    | '/help/support-the-appeal'
+    | '/issue/family-reunification'
+    | '/issue/our-demands'
+    | '/issue/where-it-stalls'
+    | '/testimonies/gaza'
+    | '/testimonies/greece'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutHowItStartedRoute: typeof AboutHowItStartedRoute
+  AboutTeamRoute: typeof AboutTeamRoute
+  CampaignActionsRoute: typeof CampaignActionsRoute
+  CampaignSignRoute: typeof CampaignSignRoute
+  HelpGetInvolvedRoute: typeof HelpGetInvolvedRoute
+  HelpSupportTheAppealRoute: typeof HelpSupportTheAppealRoute
+  IssueFamilyReunificationRoute: typeof IssueFamilyReunificationRoute
+  IssueOurDemandsRoute: typeof IssueOurDemandsRoute
+  IssueWhereItStallsRoute: typeof IssueWhereItStallsRoute
+  TestimoniesGazaRoute: typeof TestimoniesGazaRoute
+  TestimoniesGreeceRoute: typeof TestimoniesGreeceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +196,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/how-it-started': {
+      id: '/about/how-it-started'
+      path: '/about/how-it-started'
+      fullPath: '/about/how-it-started'
+      preLoaderRoute: typeof AboutHowItStartedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/team': {
+      id: '/about/team'
+      path: '/about/team'
+      fullPath: '/about/team'
+      preLoaderRoute: typeof AboutTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaign/actions': {
+      id: '/campaign/actions'
+      path: '/campaign/actions'
+      fullPath: '/campaign/actions'
+      preLoaderRoute: typeof CampaignActionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaign/sign': {
+      id: '/campaign/sign'
+      path: '/campaign/sign'
+      fullPath: '/campaign/sign'
+      preLoaderRoute: typeof CampaignSignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/get-involved': {
+      id: '/help/get-involved'
+      path: '/help/get-involved'
+      fullPath: '/help/get-involved'
+      preLoaderRoute: typeof HelpGetInvolvedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/support-the-appeal': {
+      id: '/help/support-the-appeal'
+      path: '/help/support-the-appeal'
+      fullPath: '/help/support-the-appeal'
+      preLoaderRoute: typeof HelpSupportTheAppealRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/issue/family-reunification': {
+      id: '/issue/family-reunification'
+      path: '/issue/family-reunification'
+      fullPath: '/issue/family-reunification'
+      preLoaderRoute: typeof IssueFamilyReunificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/issue/our-demands': {
+      id: '/issue/our-demands'
+      path: '/issue/our-demands'
+      fullPath: '/issue/our-demands'
+      preLoaderRoute: typeof IssueOurDemandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/issue/where-it-stalls': {
+      id: '/issue/where-it-stalls'
+      path: '/issue/where-it-stalls'
+      fullPath: '/issue/where-it-stalls'
+      preLoaderRoute: typeof IssueWhereItStallsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonies/gaza': {
+      id: '/testimonies/gaza'
+      path: '/testimonies/gaza'
+      fullPath: '/testimonies/gaza'
+      preLoaderRoute: typeof TestimoniesGazaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonies/greece': {
+      id: '/testimonies/greece'
+      path: '/testimonies/greece'
+      fullPath: '/testimonies/greece'
+      preLoaderRoute: typeof TestimoniesGreeceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutHowItStartedRoute: AboutHowItStartedRoute,
+  AboutTeamRoute: AboutTeamRoute,
+  CampaignActionsRoute: CampaignActionsRoute,
+  CampaignSignRoute: CampaignSignRoute,
+  HelpGetInvolvedRoute: HelpGetInvolvedRoute,
+  HelpSupportTheAppealRoute: HelpSupportTheAppealRoute,
+  IssueFamilyReunificationRoute: IssueFamilyReunificationRoute,
+  IssueOurDemandsRoute: IssueOurDemandsRoute,
+  IssueWhereItStallsRoute: IssueWhereItStallsRoute,
+  TestimoniesGazaRoute: TestimoniesGazaRoute,
+  TestimoniesGreeceRoute: TestimoniesGreeceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
