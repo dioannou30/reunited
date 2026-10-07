@@ -1,0 +1,179 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--mantine-color-body);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
+  min-height: 4.5rem;
+  margin-inline: auto;
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+}
+
+.logo {
+  margin-inline-end: auto;
+  font-family: var(--mantine-font-family-headings);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--mantine-color-black);
+  text-decoration: none;
+}
+
+.logoRe {
+  color: var(--mantine-color-red-6);
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.navTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 2.75rem;
+  padding-inline: 0.625rem;
+  border-radius: var(--mantine-radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--mantine-color-black);
+  transition: background-color 150ms ease;
+}
+
+.navTrigger:hover,
+.navTrigger[aria-expanded="true"] {
+  background-color: var(--mantine-color-gray-1);
+}
+
+.chevron {
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 150ms ease;
+}
+
+.navTrigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  min-width: 16rem;
+  padding: 0.375rem;
+  border: 1px solid var(--mantine-color-gray-3);
+  background-color: var(--mantine-color-white);
+}
+
+.dropdownItem {
+  min-height: 2.75rem;
+  font-size: 0.95rem;
+  color: var(--mantine-color-black);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.signButton {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.arrow:dir(rtl) {
+  transform: scaleX(-1);
+}
+
+.langGroup {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.lang {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding-inline: 0.375rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mantine-color-gray-7);
+  cursor: pointer;
+}
+
+.lang:hover {
+  color: var(--mantine-color-black);
+}
+
+.lang[aria-pressed="true"] {
+  color: var(--mantine-color-black);
+  text-decoration: underline;
+  text-decoration-color: var(--mantine-color-red-6);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.drawerBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accordionControl {
+  min-height: 3.25rem;
+  font-weight: 700;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 0.5rem;
+  color: var(--mantine-color-black);
+  text-decoration: none;
+}
+
+.drawerLink:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--mantine-color-red-6);
+  text-underline-offset: 4px;
+}
+
+.drawerLang {
+  justify-content: center;
+}
+
+@media (min-width: 75em) {
+  .desktopNav,
+  .desktopOnly {
+    display: flex;
+  }
+
+  .burger {
+    display: none;
+  }
+}

@@ -12,7 +12,7 @@ import type { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, HeadContent, Scripts } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import { Footer } from '@/components/Footer'
-import { Navbar } from '@/components/Navbar'
+import { Header } from '@/components/header/Header'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import globalCss from '@/styles/global.css?url'
@@ -53,7 +53,7 @@ function RootDocument({ children }: { children: ReactNode }) {
             cssVariablesResolver={cssVariablesResolver}
             defaultColorScheme="light"
           >
-            <Navbar />
+            <Header />
             {children}
             <Footer />
           </MantineProvider>

@@ -1,7 +1,6 @@
-import { Link } from '@tanstack/react-router'
 import { m } from '@/paraglide/messages'
 
-const sections = [
+export const navigation = [
   {
     id: 'about',
     label: m.nav_about,
@@ -37,35 +36,10 @@ const sections = [
   },
   {
     id: 'help',
-    label: m.nav_help,
+    label: m.nav_help_short,
     items: [
       { to: '/help/support-the-appeal', label: m.nav_help_support },
       { to: '/help/get-involved', label: m.nav_help_join },
     ],
   },
 ] as const
-
-export function Navbar() {
-  return (
-    <header>
-      <nav aria-label={m.nav_main()}>
-        <Link to="/">ReUnited</Link>
-        <ul>
-          {sections.map((section) => (
-            <li key={section.id}>
-              <span id={`nav-${section.id}`}>{section.label()}</span>
-              <ul aria-labelledby={`nav-${section.id}`}>
-                {section.items.map((item) => (
-                  <li key={item.to}>
-                    <Link to={item.to}>{item.label()}</Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <Link to="/campaign/sign">{m.cta_sign()}</Link>
-      </nav>
-    </header>
-  )
-}
