@@ -1,3 +1,5 @@
+import commissionerGreek from '@fontsource-variable/commissioner/files/commissioner-greek-wght-normal.woff2?url'
+import commissionerLatin from '@fontsource-variable/commissioner/files/commissioner-latin-wght-normal.woff2?url'
 import commissionerCss from '@fontsource-variable/commissioner/index.css?url'
 import notoSansCss from '@fontsource-variable/noto-sans/index.css?url'
 import notoSansArabicCss from '@fontsource-variable/noto-sans-arabic/index.css?url'
@@ -26,6 +28,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: m.site_title() },
     ],
     links: [
+      { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+      {
+        rel: 'preload',
+        href: commissionerLatin,
+        as: 'font',
+        type: 'font/woff2',
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'preload',
+        href: commissionerGreek,
+        as: 'font',
+        type: 'font/woff2',
+        crossOrigin: 'anonymous',
+      },
       { rel: 'stylesheet', href: mantineCss },
       { rel: 'stylesheet', href: commissionerCss },
       { rel: 'stylesheet', href: notoSansCss },
@@ -47,6 +64,9 @@ function RootDocument({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a href="#main" className="skip-link">
+          {m.skip_to_content()}
+        </a>
         <DirectionProvider initialDirection={dir} detectDirection={false}>
           <MantineProvider
             theme={theme}

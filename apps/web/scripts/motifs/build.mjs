@@ -135,12 +135,6 @@ function keffiyeh({ seed = 3 } = {}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${stripes.join('')}<path d="${stem.join('')}" stroke="${ink}" stroke-width="0.9" fill="none"/>${leaves.join('')}<path d="${net.join('')}" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
 }
 
-function horizontal(svg) {
-  const [, w, h] = svg.match(/width="([\d.]+)" height="([\d.]+)"/)
-  const inner = svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '')
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${h}" height="${w}" viewBox="0 0 ${h} ${w}"><g transform="translate(${h} 0) rotate(90)">${inner}</g></svg>`
-}
-
 function tornMask({ seed = 41, width = 1000, height = 600, step = 14, depth = 9 } = {}) {
   const rand = seeded(seed)
   const edge = (from, to, fixed, axis) => {
@@ -164,16 +158,30 @@ function tornMask({ seed = 41, width = 1000, height = 600, step = 14, depth = 9 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none"><path d="${d}" fill="#000"/></svg>`
 }
 
+function band() {
+  const width = 48
+  const height = 30
+  const paper = '#F1EADA'
+  const net = []
+  const beads = []
+  for (let k = -1; k <= width / 24; k++) {
+    const left = k * 24
+    net.push(`M${left} 15L${left + 12} 6L${left + 24} 15L${left + 12} 24Z`)
+    beads.push(`<ellipse cx="${left}" cy="15" rx="2.5" ry="2" fill="${paper}"/>`)
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="${width}" height="${height}" fill="${colors.ink}"/><rect width="${width}" height="3" fill="${colors.red}"/><rect y="${height - 3}" width="${width}" height="3" fill="${colors.red}"/><path d="${net.join('')}" stroke="${paper}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
+}
+
 const palette = { r: colors.red, g: colors.green, k: colors.ink }
 
 mkdirSync(outDir, { recursive: true })
 const files = {
   'border-right.svg': render(right, palette, { seed: 11 }),
   'border-left.svg': keffiyeh(),
-  'band.svg': horizontal(keffiyeh()),
+  'band.svg': band(),
   'torn-mask.svg': tornMask(),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
-  'olive-branch.svg': render(recolor(olive, { a: 'r' }), palette, { seed: 5 }),
+  'olive-branch.svg': render(recolor(olive, { a: 'g' }), palette, { seed: 5 }),
 }
 for (const [name, svg] of Object.entries(files)) {
   writeFileSync(resolve(outDir, name), svg)

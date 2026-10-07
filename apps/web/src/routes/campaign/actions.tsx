@@ -3,5 +3,6 @@ import { PlaceholderPage } from '@/components/PlaceholderPage'
 import { m } from '@/paraglide/messages'
 
 export const Route = createFileRoute('/campaign/actions')({
+  head: () => ({ meta: [{ title: `${m.nav_campaign_actions()} · ReUnited` }] }),
   component: () => <PlaceholderPage title={m.nav_campaign_actions()} />,
 })

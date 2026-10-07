@@ -30,7 +30,7 @@ export function Hero() {
             <Button
               component={Link}
               to="/campaign/sign"
-              color="red"
+              color="red.6"
               radius="xl"
               size="lg"
               rightSection={<ArrowRightIcon className={classes.arrow} />}
@@ -54,17 +54,8 @@ export function Hero() {
         </div>
       </div>
 
-      <figure className={classes.figure}>
-        <picture>
-          <source srcSet="/images/hero-placeholder.webp" type="image/webp" />
-          <img
-            src="/images/hero-placeholder.jpg"
-            alt={hero.imageAlt}
-            width={572}
-            height={712}
-            className={classes.image}
-          />
-        </picture>
+      <div className={classes.media}>
+        <div className={classes.frame} aria-hidden="true" />
         <img
           src="/motifs/olive-branch.svg"
           alt=""
@@ -72,7 +63,7 @@ export function Hero() {
           height={108}
           className={classes.olive}
         />
-      </figure>
+      </div>
     </section>
   )
 }
