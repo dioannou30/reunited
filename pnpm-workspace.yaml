@@ -1,0 +1,14 @@
+packages:
+  - apps/*
+
+minimumReleaseAgeExclude:
+  - '@inlang/paraglide-js@2.26.0'
+  - '@inlang/sdk@3.1.0'
+  - '@lix-js/sdk@0.19.0'
+  - '@mantine/core@9.7.1'
+  - '@mantine/hooks@9.7.1'
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
