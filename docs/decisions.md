@@ -26,7 +26,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 | Η ομάδα | `/about/team` |
 | **Το ζήτημα** | |
 | Τι είναι η οικογενειακή επανένωση | `/issue/family-reunification` |
-| Τι θα μπορούσε να γίνει | `/issue/what-could-be-done` |
+| Πού κολλάει η διαδικασία (the doc calls it «Τι θα μπορούσε να γίνει») | `/issue/where-it-stalls` |
 | Τι ζητάμε να γίνει | `/issue/our-demands` |
 | **Μαρτυρίες** | |
 | Στην Ελλάδα | `/testimonies/greece` |
@@ -36,7 +36,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 | Υπόγραψε | `/campaign/sign` |
 | **Πώς μπορείς να βοηθήσεις** | |
 | Στήριξε την έκκληση | `/help/support-the-appeal` |
-| Συμμετείχε | `/help/get-involved` |
+| Πάρε μέρος (the doc says «Συμμετείχε», a grammar error) | `/help/get-involved` |
 
 - Top-level items are menu groups for now, with no page of their own. Waiting on the PM (see devQuestions).
 - Legal pages (`/privacy`, `/cookies`) and contact live in the footer.
@@ -86,7 +86,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - **File storage:** Cloudflare R2 through `@payloadcms/storage-s3`. It is only enabled when `S3_BUCKET` is set; otherwise files go to local disk.
 - **CORS/CSRF** allow `WEB_URL`.
 - **Plugins:**
-  - wired: **form builder** (for "Συμμετείχε", the get-involved form)
+  - wired: **form builder** (for "Πάρε μέρος", the get-involved form)
   - deferred until content collections exist: **SEO**, **search**, **redirects** (it refuses an empty collection list)
 - **Roles are defined in code.** Dimitri creates the admin and editor accounts.
 - **Planned content model** (derived from the menu doc, to be confirmed):
@@ -149,13 +149,17 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - Net, olive-leaf wave, bold stripes and red zigzag, drawn with CSS masks and inline SVG rather than images.
 - Dimitri likes the 44px ink band with the faint net pattern and red borders.
 
+## Greek copy
+
+- Greek copy is fixed directly, without waiting for the PM:
+  - "Τι θα μπορούσε να γίνει" becomes "Πού κολλάει η διαδικασία", to match its description.
+  - "Συμμετείχε" becomes "Πάρε μέρος".
+
 ## Still open (asked the PM)
 
 - The documents library is missing from the menu: where does it go?
 - Contact and news: are they in the footer and in "Δράσεις"?
 - "Υπόγραψε" appears twice in the menu: one page or two?
-- The title "Τι θα μπορούσε να γίνει" doesn't match its description.
-- "Συμμετείχε" is a grammar mistake; it is used verbatim until the PM replies.
 - Do top-level menu items get their own pages?
 - The mockup photo looks AI-generated: real photos with consent, or illustration?
 - A handwritten Greek font.
