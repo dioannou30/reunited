@@ -7,7 +7,6 @@ export type HomeContent = {
     lede: string
     primaryCta: string
     secondaryCta: string
-    imageAlt: string
   }
 }
 
@@ -19,8 +18,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       lede: 'Μια καμπάνια για την οικογενειακή επανένωση Παλαιστινίων προσφύγων στην Ελλάδα. Γιατί κανείς δεν πρέπει να μένει πίσω.',
       primaryCta: 'Υπόγραψε την έκκληση',
       secondaryCta: 'Δες την ιστορία μας',
-      imageAlt:
-        'Μια μητέρα με μαντίλα κρατά στην αγκαλιά της ένα μικρό παιδί, μπροστά σε έναν ζεστό σοβατισμένο τοίχο.',
     },
   },
   en: {
@@ -30,8 +27,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       lede: 'A campaign for the family reunification of Palestinian refugees in Greece. Because no one should be left behind.',
       primaryCta: 'Sign the appeal',
       secondaryCta: 'See our story',
-      imageAlt:
-        'A mother in a headscarf holds a small child in her arms against a warm plastered wall.',
     },
   },
   ar: {
@@ -41,7 +36,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       lede: 'حملة من أجل لمّ شمل عائلات اللاجئين الفلسطينيين في اليونان. لأنه لا ينبغي أن يُترك أحد خلفنا.',
       primaryCta: 'وقّع النداء',
       secondaryCta: 'شاهد قصتنا',
-      imageAlt: 'أم ترتدي حجابًا تحمل طفلًا صغيرًا بين ذراعيها أمام جدار دافئ اللون.',
     },
   },
 }

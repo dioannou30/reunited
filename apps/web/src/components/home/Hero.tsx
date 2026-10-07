@@ -5,12 +5,6 @@ import { homeContent } from '@/content/home'
 import { getLocale } from '@/paraglide/runtime'
 import classes from './Hero.module.css'
 
-const desktopSizes =
-  '(min-width: 90em) 77rem, (min-width: 62em) calc(100vw - 15rem), calc(100vw - 2rem)'
-
-const srcSet = (name: string, widths: number[], format: string) =>
-  widths.map((w) => `/images/hero/${name}-${w}.${format} ${w}w`).join(', ')
-
 export function Hero() {
   const { hero } = homeContent[getLocale()]
 
@@ -66,39 +60,7 @@ export function Hero() {
       </div>
 
       <div className={classes.media}>
-        <picture className={classes.frame}>
-          <source
-            media="(min-width: 36em)"
-            type="image/avif"
-            srcSet={srcSet('desktop', [1200, 1600, 2400], 'avif')}
-            sizes={desktopSizes}
-          />
-          <source
-            media="(min-width: 36em)"
-            type="image/webp"
-            srcSet={srcSet('desktop', [1200, 1600, 2400], 'webp')}
-            sizes={desktopSizes}
-          />
-          <source media="(min-width: 36em)" srcSet="/images/hero/desktop-1600.jpg" />
-          <source
-            type="image/avif"
-            srcSet={srcSet('mobile', [800, 1200, 1600], 'avif')}
-            sizes="calc(100vw - 2rem)"
-          />
-          <source
-            type="image/webp"
-            srcSet={srcSet('mobile', [800, 1200, 1600], 'webp')}
-            sizes="calc(100vw - 2rem)"
-          />
-          <img
-            src="/images/hero/mobile-1200.jpg"
-            alt={hero.imageAlt}
-            width={1600}
-            height={1200}
-            fetchPriority="high"
-            className={classes.image}
-          />
-        </picture>
+        <div className={classes.frame} aria-hidden="true" />
         <img
           src="/motifs/olive-branch.svg"
           alt=""
