@@ -11,6 +11,7 @@
       "!**/routeTree.gen.ts",
       "!**/payload-types.ts",
       "!**/importMap.js",
+      "!apps/web/public/motifs",
       "!apps/cms/src/app/(payload)",
       "!**/*.docx",
       "!**/*.jpg",

@@ -1,0 +1,13 @@
+@media (min-width: 62em) {
+  body {
+    background-image: url("/motifs/border-left.svg"), url("/motifs/border-right.svg");
+    background-repeat: repeat-y, repeat-y;
+    background-position:
+      left 12px top 0,
+      right 12px top 0;
+    background-size:
+      54px auto,
+      72px auto;
+    padding-inline: 104px;
+  }
+}

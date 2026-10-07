@@ -44,8 +44,25 @@ The motifs themselves are traditional heritage. A specific **chart** (the stitch
 4. Apply it as two `body` background layers (`repeat-y`, left and right), recoloured through `mask` with theme colours. On mobile, replace the side borders with the horizontal band.
 5. Credit it in the footer: "Tatreez motifs: Illustration from Tirazain" plus a link.
 
+## Implemented
+
+Charts were extracted from the Tirazain chart images. The stitch matrices are in `apps/web/scripts/motifs/charts.mjs`, along with each source's URL.
+
+| Motif | Tirazain entry |
+| --- | --- |
+| Snan Al Ajouz / Old Man's Teeth (all areas) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-7xj63 |
+| Sarwa / Cypress Tree Gaza (1) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-x32jf |
+| Al Shbak / The Net | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-75dtb |
+| Irq Al Zaytoun / Olive Branch (1) (all areas) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-66k56 |
+
+- **Right border:** Cypress Tree (Gaza) in green and red, framed by Old Man's Teeth in red on both sides.
+- **Left border:** The Net in ink, with Old Man's Teeth in red on both sides.
+- **Olive Branch:** rendered as a standalone SVG for later use as a decoration (the mockup's olive branch).
+- `pnpm --filter web motifs` regenerates the SVGs into `apps/web/public/motifs/` (about 3.6–4.6 KB each, gzipped). Each stitch is drawn as an X with seeded jitter, so the output is stable between builds.
+- Applied in `src/styles/global.css` as two `body` background layers, from 62em (desktop) up only. The credit sits in the footer.
+- The Tirazain chart images are **not** committed (their terms prohibit redistributing the archive). Only our transcription and the source links are.
+
 ## To do
 
-- [ ] Ask the campaign whether they want a specific region or village (otherwise use the national motifs above).
-- [ ] Email Tirazain for written permission and confirm the attribution wording.
-- [ ] Choose and save the exact charts (fishnet, olive leaf, Old Man's Teeth, cypress).
+- [ ] Mobile: horizontal band instead of side borders.
+- [ ] Licensing and permission with Tirazain (Dimitri).

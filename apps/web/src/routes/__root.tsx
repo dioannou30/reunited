@@ -11,9 +11,11 @@ import mantineCss from '@mantine/core/styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, HeadContent, Scripts } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
+import globalCss from '@/styles/global.css?url'
 import { cssVariablesResolver, theme } from '@/theme'
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -28,6 +30,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: 'stylesheet', href: commissionerCss },
       { rel: 'stylesheet', href: notoSansCss },
       { rel: 'stylesheet', href: notoSansArabicCss },
+      { rel: 'stylesheet', href: globalCss },
     ],
   }),
   shellComponent: RootDocument,
@@ -52,6 +55,7 @@ function RootDocument({ children }: { children: ReactNode }) {
           >
             <Navbar />
             {children}
+            <Footer />
           </MantineProvider>
         </DirectionProvider>
         <Scripts />
