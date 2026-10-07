@@ -138,17 +138,15 @@
 
 .olive {
   position: absolute;
-  inset-block-end: -1.25rem;
-  inset-inline-start: 1.25rem;
-  width: 2.75rem;
+  inset-block-start: -1.5rem;
+  inset-inline-start: -0.25rem;
+  width: 6.5rem;
   height: auto;
-  transform: rotate(-24deg);
-  transform-origin: bottom center;
   pointer-events: none;
 }
 
 .olive:dir(rtl) {
-  transform: rotate(24deg);
+  transform: scaleX(-1);
 }
 
 @media (max-width: 22.5em) {
@@ -180,8 +178,8 @@
   }
 
   .olive {
-    width: 4rem;
-    inset-block-end: -1.75rem;
+    width: 8.5rem;
+    inset-block-start: -2rem;
   }
 }
 
@@ -206,7 +204,8 @@
   }
 
   .olive {
-    width: 5rem;
-    inset-inline-start: 0;
+    width: 11rem;
+    inset-block-start: -2rem;
+    inset-inline-start: -3rem;
   }
 }

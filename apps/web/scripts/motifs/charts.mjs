@@ -14,11 +14,6 @@ export const sources = {
     origin: 'Hirbawi factory, Hebron (reference)',
     url: 'https://hirbawiusa.com/products/black-and-white',
   },
-  olive: {
-    name: 'Irq Al Zaytoun / Olive Branch (2) (عرق الزيتون)',
-    origin: 'Ramallah',
-    url: 'https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-j3zn6',
-  },
 }
 
 export const teeth = ['a.', 'a.', 'aa']
@@ -58,38 +53,4 @@ export const cypress = [
   '....b.a.....',
   '............',
   '............',
-]
-
-export const olive = [
-  'a.......a',
-  'aa.aaa.aa',
-  'aaa.a.aaa',
-  'aaa.a.aaa',
-  'aaa.a.aaa',
-  'aaa.a.aaa',
-  'aaa.a.aaa',
-  '.aa.a.aa.',
-  '..a.a.a..',
-  '...aaa...',
-  'b...a...b',
-  'bb.aaa.bb',
-  'bbb.a.bbb',
-  'bbb.a.bbb',
-  'bbb.a.bbb',
-  'bbb.a.bbb',
-  'bbb.a.bbb',
-  '.bb.a.bb.',
-  '..b.a.b..',
-  '...aaa...',
-  'c...a...c',
-  'cc.aaa.cc',
-  'ccc.a.ccc',
-  'ccc.a.ccc',
-  'ccc.a.ccc',
-  'ccc.a.ccc',
-  'ccc.a.ccc',
-  '.cc.a.cc.',
-  '..c.a.c..',
-  '...aaa...',
-  '....a....',
 ]

@@ -52,11 +52,10 @@ Tatreez charts were extracted from the Tirazain chart images. The stitch matrice
 | --- | --- |
 | Snan Al Ajouz / Old Man's Teeth (all areas) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-7xj63 |
 | Sarwa / Cypress Tree Gaza (1) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-x32jf |
-| Irq Al Zaytoun / Olive Branch (1) (all areas) | https://tirazain.com/archive/p/lily-f5j49-2ydlp-jkdr3-66k56 |
 
 - **Right border:** Cypress Tree (Gaza) in green and red, framed by Old Man's Teeth in red on both sides.
 - **Left border:** the **keffiyeh**: bold lines on the outer edge, then a row of olive leaves, then the fishnet with its beads, all in ink. Because the keffiyeh is **woven** rather than embroidered, it's drawn procedurally with solid lines, not X stitches. Reference: the Hirbawi black-and-white kufiya from Hebron, the last keffiyeh factory in Palestine (https://hirbawiusa.com/products/black-and-white). An earlier version used tatreez's "Al Shbak / The Net" here, which was dropped because it isn't the keffiyeh.
-- **Olive Branch:** rendered as a standalone SVG for later use as a decoration (the mockup's olive branch).
+- **Hero olive sprig** (`olive-sprig.svg`): an illustration, not a traditional motif. It's a generated vector sprig with olive-green leaves and dark olives, standing in for the mockup's painted olive branch. Earlier, the tatreez "Irq Al Zaytoun" charts were tried there and dropped, because as stitch patterns they don't read as a branch at that size.
 - `pnpm --filter web motifs` regenerates the SVGs into `apps/web/public/motifs/` (about 3.6–4.6 KB each, gzipped). Each stitch is drawn as an X with seeded jitter, so the output is stable between builds.
 - Applied in `src/styles/global.css` as two `body` background layers, from 62em (desktop) up only. The credit sits in the footer.
 - The Tirazain chart images are **not** committed (their terms prohibit redistributing the archive). Only our transcription and the source links are.

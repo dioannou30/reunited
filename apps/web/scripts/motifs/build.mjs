@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { cypress, olive, teeth } from './charts.mjs'
+import { cypress, teeth } from './charts.mjs'
 
 const outDir = resolve(dirname(fileURLToPath(import.meta.url)), '../../public/motifs')
 
@@ -9,7 +9,6 @@ const colors = {
   red: '#BE231C',
   green: '#0B5A30',
   ink: '#0B0D09',
-  olive: '#4F5733',
 }
 
 const rotate = (grid) =>
@@ -101,13 +100,13 @@ function keffiyeh({ seed = 3 } = {}) {
   for (let i = 0; i < height / 7; i++) {
     const y = i * 7 + 3.5
     const side = i % 2 === 0 ? -1 : 1
-    const x = leafCenter + side * 2.6
+    const x = leafCenter + side * 3.2
     stem.push(`${i === 0 ? 'M' : 'L'}${f(x + j())} ${f(y)}`)
     leaves.push(
-      `<ellipse cx="${f(x + j())}" cy="${f(y + j())}" rx="1.7" ry="4.1" transform="rotate(${side * 38} ${f(x)} ${f(y)})" fill="${ink}"/>`,
+      `<ellipse cx="${f(x + j())}" cy="${f(y + j())}" rx="2.4" ry="5.4" transform="rotate(${side * 34} ${f(x)} ${f(y)})" fill="${ink}"/>`,
     )
   }
-  stem.push(`L${f(leafCenter - 2.6)} ${height + 3.5}`)
+  stem.push(`L${f(leafCenter - 3.2)} ${height + 3.5}`)
 
   const netLeft = 38
   const size = 28
@@ -133,7 +132,7 @@ function keffiyeh({ seed = 3 } = {}) {
     )
   }
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${stripes.join('')}<path d="${stem.join('')}" stroke="${ink}" stroke-width="0.9" fill="none"/>${leaves.join('')}<path d="${net.join('')}" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${stripes.join('')}<path d="${stem.join('')}" stroke="${ink}" stroke-width="0.9" fill="none"/><path d="${stem.join('')}" transform="translate(0 ${-height})" stroke="${ink}" stroke-width="0.9" fill="none"/><g id="leaves">${leaves.join('')}</g><use href="#leaves" y="${-height}"/><use href="#leaves" y="${height}"/><path d="${net.join('')}" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
 }
 
 function tornMask({ seed = 41, width = 1000, height = 600, step = 14, depth = 9 } = {}) {
@@ -173,7 +172,46 @@ function band() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="${width}" height="${height}" fill="${colors.ink}"/><rect width="${width}" height="3" fill="${colors.red}"/><rect y="${height - 3}" width="${width}" height="3" fill="${colors.red}"/><path d="${net.join('')}" stroke="${paper}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
 }
 
-const palette = { r: colors.red, g: colors.green, k: colors.ink, o: colors.olive }
+function oliveSprig({ seed = 9 } = {}) {
+  const rand = seeded(seed)
+  const f = (n) => n.toFixed(1)
+  const leafTones = ['#4F5733', '#5E672F', '#737C38', '#3C4227']
+  const point = (t) => {
+    const x = 30 + 150 * t + 18 * Math.sin(t * Math.PI)
+    const y = 250 - 225 * t
+    return [x, y]
+  }
+  const stemPoints = Array.from({ length: 21 }, (_, i) => point(i / 20))
+  const stem = `M${stemPoints.map(([x, y]) => `${f(x)} ${f(y)}`).join('L')}`
+  const leaf = (length, width) =>
+    `M0 0C${f(width)} ${f(-length * 0.3)} ${f(width * 0.8)} ${f(-length * 0.75)} 0 ${f(-length)}C${f(-width * 0.8)} ${f(-length * 0.75)} ${f(-width)} ${f(-length * 0.3)} 0 0Z`
+  const leaves = []
+  const olives = []
+  for (let i = 1; i <= 11; i++) {
+    const t = i / 12
+    const [x, y] = point(t)
+    const side = i % 2 === 0 ? 1 : -1
+    const angle = -38 + side * (52 + rand() * 16)
+    const length = 46 - t * 16 + rand() * 8
+    const tone = leafTones[Math.floor(rand() * leafTones.length)]
+    leaves.push(
+      `<path d="${leaf(length, length * 0.2)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(angle)})" fill="${tone}"/>`,
+      `<path d="M0 -2L0 ${f(-length + 4)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(angle)})" stroke="#2E2C27" stroke-width="0.6" opacity="0.35"/>`,
+    )
+    if ([3, 6, 8].includes(i)) {
+      const ox = x + side * 12
+      const oy = y + 6
+      olives.push(
+        `<path d="M${f(x)} ${f(y)}Q${f(x + side * 6)} ${f(y + 2)} ${f(ox)} ${f(oy - 9)}" stroke="#3C4227" stroke-width="1.4" fill="none"/>`,
+        `<ellipse cx="${f(ox)}" cy="${f(oy)}" rx="7.5" ry="10" transform="rotate(${side * 18} ${f(ox)} ${f(oy)})" fill="#171613"/>`,
+        `<ellipse cx="${f(ox - 2.4)}" cy="${f(oy - 3.5)}" rx="1.8" ry="3" transform="rotate(${side * 18} ${f(ox)} ${f(oy)})" fill="#5E5A4F" opacity="0.8"/>`,
+      )
+    }
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="260" viewBox="0 0 220 260"><path d="${stem}" stroke="#3C4227" stroke-width="3" stroke-linecap="round" fill="none"/>${leaves.join('')}${olives.join('')}</svg>`
+}
+
+const palette = { r: colors.red, g: colors.green, k: colors.ink }
 
 mkdirSync(outDir, { recursive: true })
 const files = {
@@ -182,7 +220,7 @@ const files = {
   'band.svg': band(),
   'torn-mask.svg': tornMask(),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
-  'olive-branch.svg': render(recolor(olive, { a: 'g', b: 'o', c: 'g' }), palette, { seed: 5 }),
+  'olive-sprig.svg': oliveSprig(),
 }
 for (const [name, svg] of Object.entries(files)) {
   writeFileSync(resolve(outDir, name), svg)

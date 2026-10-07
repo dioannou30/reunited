@@ -22,9 +22,18 @@
 }
 
 @media (min-width: 62em) {
+  body {
+    background-color: var(--mantine-color-gray-2);
+  }
+
   .sheet {
-    max-width: 90rem;
+    max-width: 96rem;
+    min-height: 100vh;
     margin-inline: auto;
+    background-color: var(--mantine-color-body);
+    box-shadow:
+      0 0 0 1px rgb(11 13 9 / 4%),
+      0 12px 48px -12px rgb(11 13 9 / 22%);
     background-image: url("/motifs/border-left.svg"), url("/motifs/border-right.svg");
     background-repeat: repeat-y, repeat-y;
     background-position:

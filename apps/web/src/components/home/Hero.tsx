@@ -62,10 +62,10 @@ export function Hero() {
       <div className={classes.media}>
         <div className={classes.frame} aria-hidden="true" />
         <img
-          src="/motifs/olive-branch.svg"
+          src="/motifs/olive-sprig.svg"
           alt=""
-          width={54}
-          height={186}
+          width={220}
+          height={260}
           className={classes.olive}
         />
       </div>
