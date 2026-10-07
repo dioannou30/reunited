@@ -73,9 +73,11 @@ function RootDocument({ children }: { children: ReactNode }) {
             cssVariablesResolver={cssVariablesResolver}
             defaultColorScheme="light"
           >
-            <Header />
-            {children}
-            <Footer />
+            <div className="sheet">
+              <Header />
+              {children}
+              <Footer />
+            </div>
           </MantineProvider>
         </DirectionProvider>
         <Scripts />

@@ -9,6 +9,7 @@ const colors = {
   red: '#BE231C',
   green: '#0B5A30',
   ink: '#0B0D09',
+  olive: '#4F5733',
 }
 
 const rotate = (grid) =>
@@ -172,7 +173,7 @@ function band() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="${width}" height="${height}" fill="${colors.ink}"/><rect width="${width}" height="3" fill="${colors.red}"/><rect y="${height - 3}" width="${width}" height="3" fill="${colors.red}"/><path d="${net.join('')}" stroke="${paper}" stroke-width="1.5" stroke-linejoin="round" fill="none"/>${beads.join('')}</svg>`
 }
 
-const palette = { r: colors.red, g: colors.green, k: colors.ink }
+const palette = { r: colors.red, g: colors.green, k: colors.ink, o: colors.olive }
 
 mkdirSync(outDir, { recursive: true })
 const files = {
@@ -181,7 +182,7 @@ const files = {
   'band.svg': band(),
   'torn-mask.svg': tornMask(),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
-  'olive-branch.svg': render(recolor(olive, { a: 'g' }), palette, { seed: 5 }),
+  'olive-branch.svg': render(recolor(olive, { a: 'g', b: 'o', c: 'g' }), palette, { seed: 5 }),
 }
 for (const [name, svg] of Object.entries(files)) {
   writeFileSync(resolve(outDir, name), svg)

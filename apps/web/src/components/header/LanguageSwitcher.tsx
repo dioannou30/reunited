@@ -1,6 +1,6 @@
-import { VisuallyHidden } from '@mantine/core'
+import { useLocation } from '@tanstack/react-router'
 import { m } from '@/paraglide/messages'
-import { getLocale, type Locale, locales, setLocale } from '@/paraglide/runtime'
+import { getLocale, type Locale, locales, localizeHref } from '@/paraglide/runtime'
 import classes from './Header.module.css'
 
 const labels: Record<Locale, string> = {
@@ -11,22 +11,22 @@ const labels: Record<Locale, string> = {
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const current = getLocale()
+  const pathname = useLocation({ select: (location) => location.pathname })
 
   return (
-    <fieldset className={`${classes.langGroup} ${className ?? ''}`}>
-      <VisuallyHidden component="legend">{m.language()}</VisuallyHidden>
+    <nav className={`${classes.langGroup} ${className ?? ''}`} aria-label={m.language()}>
       {locales.map((locale) => (
-        <button
+        <a
           key={locale}
-          type="button"
+          href={localizeHref(pathname, { locale })}
+          hrefLang={locale}
           lang={locale}
           className={classes.lang}
-          aria-pressed={locale === current}
-          onClick={() => setLocale(locale)}
+          aria-current={locale === current ? 'true' : undefined}
         >
           {labels[locale]}
-        </button>
+        </a>
       ))}
-    </fieldset>
+    </nav>
   )
 }

@@ -22,7 +22,9 @@
 }
 
 @media (min-width: 62em) {
-  body {
+  .sheet {
+    max-width: 90rem;
+    margin-inline: auto;
     background-image: url("/motifs/border-left.svg"), url("/motifs/border-right.svg");
     background-repeat: repeat-y, repeat-y;
     background-position:

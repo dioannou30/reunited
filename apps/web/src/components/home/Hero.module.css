@@ -1,10 +1,10 @@
 .hero {
-  padding-block: 2rem 1rem;
+  padding-block: 1.5rem 1rem;
 }
 
 .inner {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.5rem;
   max-width: 80rem;
   margin-inline: auto;
   padding-inline: 1rem;
@@ -12,19 +12,19 @@
 
 .intro {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
   container-type: inline-size;
 }
 
 .eyebrow {
   display: grid;
-  text-wrap: balance;
   margin: 0;
   font-size: 0.75rem;
   font-weight: 600;
-  line-height: 1.9;
-  letter-spacing: 0.28em;
+  line-height: 1.8;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  text-wrap: balance;
   color: var(--mantine-color-gray-7);
 }
 
@@ -32,18 +32,19 @@
   content: "";
   width: 3.5rem;
   height: 3px;
-  margin-top: 0.75rem;
+  margin-top: 0.625rem;
   border-radius: 2px;
   background-color: var(--mantine-color-red-6);
 }
 
 .eyebrow:lang(ar) {
+  font-size: 0.9rem;
   letter-spacing: 0;
 }
 
 .title {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.625rem;
   margin: 0;
 }
 
@@ -61,24 +62,27 @@
 }
 
 .subtitle {
-  justify-self: start;
-  padding-bottom: 0.4em;
-  background: url("/motifs/brush-underline.svg") no-repeat left bottom / 100% 0.45em;
+  display: grid;
+  justify-items: start;
   font-family: var(--mantine-font-family-headings);
   font-size: clamp(1.6rem, 6vw, 3rem);
   font-weight: 600;
   line-height: 1.15;
-  text-wrap: balance;
   color: var(--mantine-color-black);
 }
 
-.subtitle:dir(rtl) {
+.underlined {
+  padding-bottom: 0.4em;
+  background: url("/motifs/brush-underline.svg") no-repeat left bottom / 100% 0.45em;
+}
+
+.underlined:dir(rtl) {
   background-position: right bottom;
 }
 
 .side {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-content: end;
 }
 
@@ -86,7 +90,7 @@
   max-width: 34rem;
   margin: 0;
   font-size: 1.125rem;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--mantine-color-gray-8);
 }
 
@@ -105,6 +109,10 @@
   letter-spacing: 0;
 }
 
+.ctaLabel {
+  overflow: visible;
+}
+
 .arrow {
   width: 1.15rem;
   height: 1.15rem;
@@ -117,27 +125,60 @@
 .media {
   position: relative;
   max-width: 80rem;
-  margin-block: 2.5rem 0;
+  margin-block: 2rem 0;
   margin-inline: auto;
   padding-inline: 1rem;
 }
 
 .frame {
+  display: block;
   aspect-ratio: 4 / 3;
-  background-color: var(--mantine-color-gray-2);
+  background-color: var(--mantine-color-gray-3);
   mask: url("/motifs/torn-mask.svg") no-repeat center / 100% 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
 }
 
 .olive {
   position: absolute;
-  inset-block-end: -1.5rem;
-  inset-inline-start: 0;
-  width: 7rem;
+  inset-block-end: -1.25rem;
+  inset-inline-start: 1.25rem;
+  width: 2.75rem;
   height: auto;
+  transform: rotate(-24deg);
+  transform-origin: bottom center;
   pointer-events: none;
 }
 
+.olive:dir(rtl) {
+  transform: rotate(24deg);
+}
+
+@media (max-width: 22.5em) {
+  .cta {
+    height: auto;
+    min-height: 3.125rem;
+    padding-block: 0.625rem;
+    font-size: 0.9rem;
+  }
+
+  .ctaLabel {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 @media (min-width: 36em) {
+  .eyebrow {
+    letter-spacing: 0.24em;
+  }
+
   .ctas {
     display: flex;
     flex-wrap: wrap;
@@ -148,14 +189,14 @@
   }
 
   .olive {
-    width: 10rem;
-    inset-block-end: -2rem;
+    width: 4rem;
+    inset-block-end: -1.75rem;
   }
 }
 
 @media (min-width: 62em) {
   .hero {
-    padding-block: 3.5rem 1.5rem;
+    padding-block: 2.5rem 1rem;
   }
 
   .inner {
@@ -167,5 +208,14 @@
   .ctas {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .media {
+    margin-block-start: 1.75rem;
+  }
+
+  .olive {
+    width: 5rem;
+    inset-inline-start: 0;
   }
 }

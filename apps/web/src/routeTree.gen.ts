@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as AboutHowItStartedRouteImport } from './routes/about/how-it-started'
 import { Route as AboutTeamRouteImport } from './routes/about/team'
 import { Route as CampaignActionsRouteImport } from './routes/campaign/actions'
@@ -25,6 +27,16 @@ import { Route as TestimoniesGreeceRouteImport } from './routes/testimonies/gree
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutHowItStartedRoute = AboutHowItStartedRouteImport.update({
@@ -86,6 +98,8 @@ const TestimoniesGreeceRoute = TestimoniesGreeceRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/about/how-it-started': typeof AboutHowItStartedRoute
   '/about/team': typeof AboutTeamRoute
   '/campaign/actions': typeof CampaignActionsRoute
@@ -100,6 +114,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/about/how-it-started': typeof AboutHowItStartedRoute
   '/about/team': typeof AboutTeamRoute
   '/campaign/actions': typeof CampaignActionsRoute
@@ -115,6 +131,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/about/how-it-started': typeof AboutHowItStartedRoute
   '/about/team': typeof AboutTeamRoute
   '/campaign/actions': typeof CampaignActionsRoute
@@ -131,6 +149,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
+    | '/privacy'
     | '/about/how-it-started'
     | '/about/team'
     | '/campaign/actions'
@@ -145,6 +165,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
+    | '/privacy'
     | '/about/how-it-started'
     | '/about/team'
     | '/campaign/actions'
@@ -159,6 +181,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/contact'
+    | '/privacy'
     | '/about/how-it-started'
     | '/about/team'
     | '/campaign/actions'
@@ -174,6 +198,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  PrivacyRoute: typeof PrivacyRoute
   AboutHowItStartedRoute: typeof AboutHowItStartedRoute
   AboutTeamRoute: typeof AboutTeamRoute
   CampaignActionsRoute: typeof CampaignActionsRoute
@@ -194,6 +220,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about/how-it-started': {
@@ -278,6 +318,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  PrivacyRoute: PrivacyRoute,
   AboutHowItStartedRoute: AboutHowItStartedRoute,
   AboutTeamRoute: AboutTeamRoute,
   CampaignActionsRoute: CampaignActionsRoute,

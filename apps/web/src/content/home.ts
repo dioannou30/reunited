@@ -3,10 +3,11 @@ import type { Locale } from '@/paraglide/runtime'
 export type HomeContent = {
   hero: {
     eyebrow: [string, string]
-    subtitle: string
+    subtitle: [string, string]
     lede: string
     primaryCta: string
     secondaryCta: string
+    imageAlt: string
   }
 }
 
@@ -14,28 +15,33 @@ export const homeContent: Record<Locale, HomeContent> = {
   el: {
     hero: {
       eyebrow: ['Οικογενειακή επανένωση', 'Παλαιστινίων προσφύγων στην Ελλάδα'],
-      subtitle: 'Για να ξανασμίξουν οι οικογένειες',
+      subtitle: ['Για να ξανασμίξουν', 'οι οικογένειες'],
       lede: 'Μια καμπάνια για την οικογενειακή επανένωση Παλαιστινίων προσφύγων στην Ελλάδα. Γιατί κανείς δεν πρέπει να μένει πίσω.',
       primaryCta: 'Υπόγραψε την έκκληση',
       secondaryCta: 'Δες την ιστορία μας',
+      imageAlt:
+        'Μια μητέρα με μαντίλα κρατά στην αγκαλιά της ένα μικρό παιδί, μπροστά σε έναν ζεστό σοβατισμένο τοίχο.',
     },
   },
   en: {
     hero: {
       eyebrow: ['Family reunification', 'of Palestinian refugees in Greece'],
-      subtitle: 'So that families can be together again',
+      subtitle: ['So that families', 'can be together again'],
       lede: 'A campaign for the family reunification of Palestinian refugees in Greece. Because no one should be left behind.',
       primaryCta: 'Sign the appeal',
       secondaryCta: 'See our story',
+      imageAlt:
+        'A mother in a headscarf holds a small child in her arms against a warm plastered wall.',
     },
   },
   ar: {
     hero: {
       eyebrow: ['لمّ شمل العائلات', 'للاجئين الفلسطينيين في اليونان'],
-      subtitle: 'لكي تجتمع العائلات من جديد',
+      subtitle: ['لكي تجتمع', 'العائلات من جديد'],
       lede: 'حملة من أجل لمّ شمل عائلات اللاجئين الفلسطينيين في اليونان. لأنه لا ينبغي أن يُترك أحد خلفنا.',
       primaryCta: 'وقّع النداء',
       secondaryCta: 'شاهد قصتنا',
+      imageAlt: 'أم ترتدي حجابًا تحمل طفلًا صغيرًا بين ذراعيها أمام جدار دافئ اللون.',
     },
   },
 }

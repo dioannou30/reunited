@@ -28,5 +28,11 @@
   "nav_help_short": "How to help",
   "nav_open_menu": "Open menu",
   "nav_close_menu": "Close menu",
-  "skip_to_content": "Skip to content"
+  "skip_to_content": "Skip to content",
+  "nav_contact": "Contact",
+  "nav_privacy": "Privacy policy",
+  "not_found_title": "Page not found",
+  "not_found_text": "The address may have changed. Go back to the home page or sign the appeal.",
+  "back_home": "Home page",
+  "nav_footer": "Footer links"
 }

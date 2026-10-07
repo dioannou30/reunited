@@ -4,7 +4,6 @@ import { Link, useLocation } from '@tanstack/react-router'
 import { ArrowRightIcon, ChevronDownIcon } from '@/components/icons'
 import { navigation } from '@/navigation'
 import { m } from '@/paraglide/messages'
-import { getLocale } from '@/paraglide/runtime'
 import classes from './Header.module.css'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
@@ -37,10 +36,12 @@ function SignButton({ fullWidth, onClick }: { fullWidth?: boolean; onClick?: () 
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false)
   const pathname = useLocation({ select: (location) => location.pathname })
-  const rtl = getLocale() === 'ar'
 
   return (
     <>
+      <div className={classes.langBar}>
+        <LanguageSwitcher />
+      </div>
       <header className={classes.header}>
         <div className={classes.inner}>
           <Logo />
@@ -82,7 +83,7 @@ export function Header() {
 
           <div className={classes.actions}>
             <SignButton />
-            <LanguageSwitcher className={classes.desktopOnly} />
+            <LanguageSwitcher className={classes.langInline} />
             <Burger
               opened={opened}
               onClick={toggle}
@@ -97,12 +98,14 @@ export function Header() {
         <Drawer
           opened={opened}
           onClose={close}
-          position={rtl ? 'left' : 'right'}
+          position="right"
           size="100%"
           title={<Logo onClick={close} />}
           closeButtonProps={{ 'aria-label': m.nav_close_menu(), className: classes.drawerClose }}
           classNames={{ body: classes.drawerBody }}
         >
+          <SignButton fullWidth onClick={close} />
+          <LanguageSwitcher className={classes.drawerLang} />
           <nav aria-label={m.nav_main()} className={classes.drawerNav}>
             {navigation.map((section) => (
               <section key={section.id} className={classes.drawerSection}>
@@ -119,8 +122,6 @@ export function Header() {
               </section>
             ))}
           </nav>
-          <SignButton fullWidth onClick={close} />
-          <LanguageSwitcher className={classes.drawerLang} />
         </Drawer>
       </header>
       <div className={classes.band} aria-hidden="true" />
