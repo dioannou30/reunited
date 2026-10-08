@@ -164,6 +164,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - Greek copy is fixed directly, without waiting for the PM:
   - "Τι θα μπορούσε να γίνει" becomes "Πού κολλάει η διαδικασία", to match its description.
   - "Συμμετείχε" becomes "Πάρε μέρος".
+  - The third home point "Ανοίγει στην πλατφόρμα / Η φωνή σου μετράει" becomes "Μαζί έχουμε φωνή / Κάθε υπογραφή δυναμώνει την πίεση στα υπουργεία." (Dimitri's choice, 2026-10-08), with matching English and Arabic.
 
 ## Still open (asked the PM)
 
