@@ -19,9 +19,12 @@
 }
 
 .sprig {
-  width: 2.5rem;
+  width: 5.5rem;
   height: auto;
-  transform: rotate(48deg);
+}
+
+.sprig:dir(rtl) {
+  transform: scaleX(-1);
 }
 
 .inner {
@@ -142,7 +145,7 @@
   }
 
   .sprig {
-    width: 3rem;
+    width: 8rem;
   }
 
   .inner {

@@ -211,6 +211,37 @@ function oliveSprig({ seed = 9 } = {}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="260" viewBox="0 0 220 260"><path d="${stem}" stroke="#3C4227" stroke-width="3" stroke-linecap="round" fill="none"/>${leaves.join('')}${olives.join('')}</svg>`
 }
 
+function oliveTwig({ seed = 5 } = {}) {
+  const rand = seeded(seed)
+  const f = (n) => n.toFixed(1)
+  const leafTones = ['#4F5733', '#5E672F', '#3C4227']
+  const point = (t) => [8 + 108 * t, 60 - 18 * t - 28 * t * t]
+  const stemPoints = Array.from({ length: 17 }, (_, i) => point(i / 16))
+  const stem = `M${stemPoints.map(([x, y]) => `${f(x)} ${f(y)}`).join('L')}`
+  const leaf = (length, width) =>
+    `M0 0C${f(width)} ${f(-length * 0.3)} ${f(width * 0.8)} ${f(-length * 0.75)} 0 ${f(-length)}C${f(-width * 0.8)} ${f(-length * 0.75)} ${f(-width)} ${f(-length * 0.3)} 0 0Z`
+  const heading = (t) => {
+    const [x0, y0] = point(Math.max(t - 0.02, 0))
+    const [x1, y1] = point(Math.min(t + 0.02, 1))
+    return (Math.atan2(x1 - x0, -(y1 - y0)) * 180) / Math.PI
+  }
+  const leaves = []
+  const place = (t, offset, length) => {
+    const [x, y] = point(t)
+    const tone = leafTones[Math.floor(rand() * leafTones.length)]
+    leaves.push(
+      `<path d="${leaf(length, length * 0.24)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(heading(t) + offset)})" fill="${tone}"/>`,
+    )
+  }
+  ;[0.3, 0.46, 0.62, 0.78].forEach((t, i) => {
+    place(t, -46 - rand() * 10, 26 - i * 2 + rand() * 4)
+    place(t + 0.06, 44 + rand() * 10, 24 - i * 2 + rand() * 4)
+  })
+  place(1, 0, 20)
+  place(0.14, 32, 34)
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="140" height="80" viewBox="0 0 140 80"><path d="${stem}" stroke="#3C4227" stroke-width="2" stroke-linecap="round" fill="none"/>${leaves.join('')}</svg>`
+}
+
 const palette = { r: colors.red, g: colors.green, k: colors.ink }
 
 mkdirSync(outDir, { recursive: true })
@@ -221,6 +252,7 @@ const files = {
   'torn-mask.svg': tornMask(),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
   'olive-sprig.svg': oliveSprig(),
+  'olive-twig.svg': oliveTwig(),
   'wave.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="16" viewBox="0 0 96 16"><path d="M0 8C12 3.5 24 3.5 36 7.5S60 12.5 72 9 90 4 96 8" stroke="${colors.ink}" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
 }
 for (const [name, svg] of Object.entries(files)) {

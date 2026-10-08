@@ -16,10 +16,10 @@ export function YesToTogether({ content }: { content: HomeContent['yesToTogether
       <div className={classes.divider} aria-hidden="true">
         <span className={classes.wave} />
         <img
-          src="/motifs/olive-sprig.svg"
+          src="/motifs/olive-twig.svg"
           alt=""
-          width={220}
-          height={260}
+          width={140}
+          height={80}
           className={classes.sprig}
         />
         <span className={classes.wave} />
