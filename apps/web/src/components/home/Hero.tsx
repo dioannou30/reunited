@@ -17,9 +17,13 @@ export function Hero() {
             <span>{hero.eyebrow[1]}</span>
           </p>
           <h1 id="hero-title" className={classes.title}>
-            <span className={classes.wordmark} dir="ltr">
-              <span className={classes.re}>Re</span>United
-            </span>
+            <img
+              src="/logo.svg"
+              alt="ReUnited"
+              width={1146}
+              height={442}
+              className={classes.wordmark}
+            />
             <span className={classes.subtitle}>
               <span>{hero.subtitle[0]}</span>{' '}
               <span className={classes.underlined}>{hero.subtitle[1]}</span>

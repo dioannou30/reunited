@@ -9,8 +9,8 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 function Logo({ onClick }: { onClick?: () => void }) {
   return (
-    <Link to="/" className={classes.logo} onClick={onClick} dir="ltr">
-      <span className={classes.logoRe}>Re</span>United
+    <Link to="/" className={classes.logo} onClick={onClick}>
+      <img src="/logo.svg" alt="ReUnited" width={1146} height={442} className={classes.logoImage} />
     </Link>
   )
 }

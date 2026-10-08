@@ -49,16 +49,9 @@
 }
 
 .wordmark {
-  font-family: var(--mantine-font-family-headings);
-  font-size: clamp(3.5rem, 23cqi, 9rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: var(--mantine-color-black);
-}
-
-.re {
-  color: var(--mantine-color-red-6);
+  display: block;
+  width: clamp(15rem, 80cqi, 38rem);
+  height: auto;
 }
 
 .subtitle {

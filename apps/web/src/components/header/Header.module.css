@@ -26,18 +26,12 @@
   align-items: center;
   min-height: 2.75rem;
   margin-inline-end: auto;
-  font-family: var(--mantine-font-family-headings);
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  white-space: nowrap;
-  color: var(--mantine-color-black);
-  text-decoration: none;
 }
 
-.logoRe {
-  color: var(--mantine-color-red-6);
+.logoImage {
+  display: block;
+  width: auto;
+  height: 2.6rem;
 }
 
 .desktopNav {
@@ -253,8 +247,8 @@
 }
 
 @media (max-width: 22.5em) {
-  .logo {
-    font-size: 1.4rem;
+  .logoImage {
+    height: 2.1rem;
   }
 
   .signButton {
