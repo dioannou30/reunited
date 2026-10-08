@@ -138,9 +138,9 @@ img.frame {
 
 .olive {
   position: absolute;
-  inset-block-start: -1.5rem;
-  inset-inline-start: -0.25rem;
-  width: 6.5rem;
+  inset-block-start: -2.5rem;
+  inset-inline-start: -0.5rem;
+  width: 5.5rem;
   height: auto;
   pointer-events: none;
 }
@@ -178,8 +178,8 @@ img.frame {
   }
 
   .olive {
-    width: 8.5rem;
-    inset-block-start: -2rem;
+    width: 7.5rem;
+    inset-block-start: -3rem;
   }
 }
 
@@ -204,8 +204,8 @@ img.frame {
   }
 
   .olive {
-    width: 11rem;
-    inset-block-start: -2rem;
-    inset-inline-start: -3rem;
+    width: 12rem;
+    inset-block-start: -4rem;
+    inset-inline-start: -3.5rem;
   }
 }

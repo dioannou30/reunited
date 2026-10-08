@@ -69,8 +69,8 @@ export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
         <img
           src="/motifs/olive-sprig.svg"
           alt=""
-          width={220}
-          height={260}
+          width={240}
+          height={560}
           className={classes.olive}
         />
       </div>

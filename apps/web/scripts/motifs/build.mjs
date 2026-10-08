@@ -175,40 +175,64 @@ function band() {
 function oliveSprig({ seed = 9 } = {}) {
   const rand = seeded(seed)
   const f = (n) => n.toFixed(1)
-  const leafTones = ['#4F5733', '#5E672F', '#737C38', '#3C4227']
-  const point = (t) => {
-    const x = 30 + 150 * t + 18 * Math.sin(t * Math.PI)
-    const y = 250 - 225 * t
-    return [x, y]
+  const width = 240
+  const height = 560
+  const darkTones = ['#3B4529', '#465232', '#55603A']
+  const sageTones = ['#7E8A63', '#97A07E', '#A9B08F']
+  const point = (t) => [70 + 46 * Math.sin(t * Math.PI * 0.85) - 30 * t, 44 + 500 * t]
+  const heading = (t) => {
+    const [x0, y0] = point(Math.max(t - 0.01, 0))
+    const [x1, y1] = point(Math.min(t + 0.01, 1))
+    return (Math.atan2(x1 - x0, -(y1 - y0)) * 180) / Math.PI
   }
-  const stemPoints = Array.from({ length: 21 }, (_, i) => point(i / 20))
+  const stemPoints = Array.from({ length: 41 }, (_, i) => point(i / 40))
   const stem = `M${stemPoints.map(([x, y]) => `${f(x)} ${f(y)}`).join('L')}`
-  const leaf = (length, width) =>
-    `M0 0C${f(width)} ${f(-length * 0.3)} ${f(width * 0.8)} ${f(-length * 0.75)} 0 ${f(-length)}C${f(-width * 0.8)} ${f(-length * 0.75)} ${f(-width)} ${f(-length * 0.3)} 0 0Z`
+  const outline = (l, w) =>
+    `M0 0C${f(w)} ${f(-l * 0.25)} ${f(w * 0.85)} ${f(-l * 0.7)} 0 ${f(-l)}C${f(-w * 0.85)} ${f(-l * 0.7)} ${f(-w)} ${f(-l * 0.25)} 0 0Z`
+  const half = (l, w) => `M0 0C${f(w)} ${f(-l * 0.25)} ${f(w * 0.85)} ${f(-l * 0.7)} 0 ${f(-l)}Z`
+  const pick = (tones) => tones[Math.floor(rand() * tones.length)]
   const leaves = []
   const olives = []
-  for (let i = 1; i <= 11; i++) {
-    const t = i / 12
+  const leaf = (x, y, angle, length) => {
+    const w = length * 0.15
+    const sage = rand() > 0.62
+    const base = sage ? pick(sageTones) : pick(darkTones)
+    const shade = sage ? pick(darkTones) : pick(sageTones)
+    leaves.push(
+      `<g transform="translate(${f(x)} ${f(y)}) rotate(${f(angle)})"><path d="${outline(length, w)}" fill="${base}"/><path d="${half(length, w)}" fill="${shade}" opacity=".45"/><path d="M0 -3L0 ${f(-length + 6)}" stroke="#E4E3CC" stroke-width="0.9" opacity=".5"/></g>`,
+    )
+  }
+  const olive = (x, y, angle) => {
+    const ox = x + Math.sin((angle * Math.PI) / 180) * 40
+    const oy = y + 22
+    olives.push(
+      `<path d="M${f(x)} ${f(y)}Q${f((x + ox) / 2)} ${f(y + 4)} ${f(ox)} ${f(oy - 15)}" stroke="#3B4529" stroke-width="1.8" fill="none"/>`,
+      `<ellipse cx="${f(ox)}" cy="${f(oy)}" rx="14" ry="18.5" transform="rotate(${f(angle * 0.5)} ${f(ox)} ${f(oy)})" fill="url(#olive)"/>`,
+      `<ellipse cx="${f(ox - 4.5)}" cy="${f(oy - 7)}" rx="3.2" ry="6" transform="rotate(${f(angle * 0.5 + 20)} ${f(ox)} ${f(oy)})" fill="#FFFFFF" opacity=".38"/>`,
+    )
+  }
+  const steps = 14
+  for (let i = 1; i <= steps; i++) {
+    const t = i / (steps + 1)
     const [x, y] = point(t)
     const side = i % 2 === 0 ? 1 : -1
-    const angle = -38 + side * (52 + rand() * 16)
-    const length = 46 - t * 16 + rand() * 8
-    const tone = leafTones[Math.floor(rand() * leafTones.length)]
-    leaves.push(
-      `<path d="${leaf(length, length * 0.2)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(angle)})" fill="${tone}"/>`,
-      `<path d="M0 -2L0 ${f(-length + 4)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(angle)})" stroke="#2E2C27" stroke-width="0.6" opacity="0.35"/>`,
-    )
-    if ([3, 6, 8].includes(i)) {
-      const ox = x + side * 12
-      const oy = y + 6
-      olives.push(
-        `<path d="M${f(x)} ${f(y)}Q${f(x + side * 6)} ${f(y + 2)} ${f(ox)} ${f(oy - 9)}" stroke="#3C4227" stroke-width="1.4" fill="none"/>`,
-        `<ellipse cx="${f(ox)}" cy="${f(oy)}" rx="7.5" ry="10" transform="rotate(${side * 18} ${f(ox)} ${f(oy)})" fill="#171613"/>`,
-        `<ellipse cx="${f(ox - 2.4)}" cy="${f(oy - 3.5)}" rx="1.8" ry="3" transform="rotate(${side * 18} ${f(ox)} ${f(oy)})" fill="#5E5A4F" opacity="0.8"/>`,
-      )
-    }
+    const length = 74 + rand() * 22 - t * 10
+    leaf(x, y, heading(t) + 180 + side * (34 + rand() * 18), length)
+    if (rand() > 0.55) leaf(x, y, heading(t) + 180 - side * (60 + rand() * 25), length * 0.8)
   }
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="260" viewBox="0 0 220 260"><path d="${stem}" stroke="#3C4227" stroke-width="3" stroke-linecap="round" fill="none"/>${leaves.join('')}${olives.join('')}</svg>`
+  ;[
+    [0.12, 1],
+    [0.3, -1],
+    [0.36, -1.5],
+    [0.52, 1],
+    [0.58, 1.5],
+    [0.76, -1],
+    [0.9, 1.2],
+  ].forEach(([t, dir]) => {
+    const [x, y] = point(t)
+    olive(x, y, dir * 30)
+  })
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><defs><radialGradient id="olive" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#3A3833"/><stop offset=".55" stop-color="#151411"/><stop offset="1" stop-color="#050504"/></radialGradient><filter id="paint" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter></defs><g filter="url(#paint)"><path d="${stem}" stroke="#3B4529" stroke-width="3.2" stroke-linecap="round" fill="none"/>${leaves.join('')}</g>${olives.join('')}</svg>`
 }
 
 function oliveTwig({ seed = 5 } = {}) {
