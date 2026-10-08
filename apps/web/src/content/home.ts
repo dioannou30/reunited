@@ -55,7 +55,11 @@ export const homeContent: Record<Locale, HomeContent> = {
           title: 'Χρειάζεται 1 λεπτό',
           text: 'Υπόγραψε την έκκληση και στήριξε την καμπάνια.',
         },
-        { icon: 'users', title: 'Ανοίγει στην πλατφόρμα', text: 'Η φωνή σου μετράει.' },
+        {
+          icon: 'users',
+          title: 'Μαζί έχουμε φωνή',
+          text: 'Κάθε υπογραφή δυναμώνει την πίεση στα υπουργεία.',
+        },
       ],
     },
     quote: {
@@ -89,7 +93,11 @@ export const homeContent: Record<Locale, HomeContent> = {
           title: 'It takes 1 minute',
           text: 'Sign the appeal and support the campaign.',
         },
-        { icon: 'users', title: 'Opens on the platform', text: 'Your voice counts.' },
+        {
+          icon: 'users',
+          title: 'Together we have a voice',
+          text: 'Every signature adds pressure on the ministries.',
+        },
       ],
     },
     quote: {
@@ -119,7 +127,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           title: 'يستغرق دقيقة واحدة',
           text: 'وقّع النداء وادعم الحملة.',
         },
-        { icon: 'users', title: 'يفتح على المنصة', text: 'صوتك مهم.' },
+        { icon: 'users', title: 'معًا لنا صوت', text: 'كل توقيع يزيد الضغط على الوزارات.' },
       ],
     },
     quote: {
