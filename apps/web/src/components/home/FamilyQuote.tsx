@@ -5,7 +5,7 @@ import classes from './FamilyQuote.module.css'
 
 export function FamilyQuote({ content: quote }: { content: HomeContent['quote'] }) {
   return (
-    <section className={classes.section}>
+    <section className={classes.section} aria-labelledby="family-quote-name">
       <div className={classes.media}>
         {quote.image ? (
           <img src={quote.image.src} alt={quote.image.alt} className={classes.frame} />
@@ -16,16 +16,21 @@ export function FamilyQuote({ content: quote }: { content: HomeContent['quote'] 
 
       <figure className={classes.figure}>
         <blockquote className={classes.quote}>
-          {quote.lines.map((line) => (
-            <span key={line}>{line}</span>
+          {quote.lines.map((line, index) => (
+            <span key={index}>{line}</span>
           ))}
         </blockquote>
         <figcaption className={classes.caption}>
-          <span className={classes.name}>{quote.name}</span>
+          <span id="family-quote-name" className={classes.name}>
+            {quote.name}
+          </span>
           <span>{quote.role}</span>
         </figcaption>
-        <Link to="/testimonies/greece" className={classes.link} aria-label={quote.linkLabel}>
-          <ArrowRightIcon className={classes.arrow} />
+        <Link to="/testimonies/greece" className={classes.link}>
+          {quote.linkLabel}
+          <span className={classes.circle}>
+            <ArrowRightIcon className={classes.arrow} />
+          </span>
         </Link>
       </figure>
     </section>

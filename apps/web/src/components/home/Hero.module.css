@@ -19,13 +19,13 @@
 .eyebrow {
   display: grid;
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.8;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-wrap: balance;
-  color: var(--mantine-color-gray-7);
+  color: var(--mantine-color-gray-8);
 }
 
 .eyebrow::after {
@@ -62,6 +62,14 @@
   font-weight: 600;
   line-height: 1.15;
   color: var(--mantine-color-black);
+}
+
+.subtitle:lang(ar) {
+  line-height: 1.5;
+}
+
+.underlined:lang(ar) {
+  padding-bottom: 0.55em;
 }
 
 .underlined {

@@ -38,7 +38,7 @@ function seeded(seed) {
   }
 }
 
-function render(grid, palette, { cell = 6, seed = 7 } = {}) {
+function render(grid, palette, { cell = 6, seed = 7, opacity = 1 } = {}) {
   const rand = seeded(seed)
   const w = grid[0].length * cell
   const h = grid.length * cell
@@ -65,7 +65,7 @@ function render(grid, palette, { cell = 6, seed = 7 } = {}) {
         `<path d="${d.join('')}" stroke="${color}" stroke-width="${(cell * 0.26).toFixed(1)}" stroke-linecap="round" fill="none"/>`,
     )
     .join('')
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${paths}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><g opacity="${opacity}">${paths}</g></svg>`
 }
 
 const teethV = rotate(teeth)
@@ -270,7 +270,7 @@ const palette = { r: colors.red, g: colors.green, k: colors.ink }
 
 mkdirSync(outDir, { recursive: true })
 const files = {
-  'border-right.svg': render(right, palette, { seed: 11 }),
+  'border-right.svg': render(right, palette, { seed: 11, opacity: 0.72 }),
   'border-left.svg': keffiyeh(),
   'band.svg': band(),
   'torn-mask.svg': tornMask(),

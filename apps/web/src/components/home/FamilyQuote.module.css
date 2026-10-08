@@ -54,6 +54,14 @@ img.frame {
   content: "\201C";
 }
 
+.quote:lang(ar) {
+  line-height: 1.6;
+}
+
+.quote:lang(ar)::before {
+  content: "\00AB";
+}
+
 .caption {
   display: grid;
   gap: 0.125rem;
@@ -73,20 +81,29 @@ img.frame {
 }
 
 .link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.75rem;
+  min-height: 3rem;
+  font-weight: 700;
+  color: var(--mantine-color-dark-9);
+  text-decoration: none;
+}
+
+.circle {
   display: grid;
   place-items: center;
-  justify-self: start;
   width: 3rem;
   height: 3rem;
   border: 1px solid var(--mantine-color-dark-9);
   border-radius: 50%;
-  color: var(--mantine-color-dark-9);
   transition:
     background-color 150ms ease,
     color 150ms ease;
 }
 
-.link:hover {
+.link:hover .circle {
   background-color: var(--mantine-color-dark-9);
   color: var(--mantine-color-white);
 }
@@ -94,6 +111,7 @@ img.frame {
 .link:focus-visible {
   outline: 2px solid var(--mantine-color-red-6);
   outline-offset: 3px;
+  border-radius: 2rem;
 }
 
 .arrow {

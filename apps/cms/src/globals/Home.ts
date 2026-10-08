@@ -76,6 +76,18 @@ export const Home: GlobalConfig = {
             },
             text('title', 'Τίτλος'),
             text('text', 'Κείμενο'),
+            {
+              name: 'link',
+              label: 'Σύνδεσμος',
+              type: 'select',
+              options: [
+                { label: 'Υπόγραψε την έκκληση', value: '/campaign/sign' },
+                {
+                  label: 'Τι είναι η οικογενειακή επανένωση',
+                  value: '/issue/family-reunification',
+                },
+              ],
+            },
           ],
         },
       ],
@@ -91,6 +103,12 @@ export const Home: GlobalConfig = {
         text('linkLabel', 'Κείμενο συνδέσμου για αναγνώστες οθόνης'),
         image('Εικονογράφηση'),
       ],
+    },
+    {
+      name: 'closing',
+      label: 'Τελική έκκληση',
+      type: 'group',
+      fields: [text('title', 'Τίτλος'), textarea('text', 'Κείμενο'), text('cta', 'Κουμπί')],
     },
   ],
 }

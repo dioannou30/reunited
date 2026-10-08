@@ -46,15 +46,24 @@ export function YesToTogether({ content }: { content: HomeContent['yesToTogether
         </div>
 
         <ul className={classes.points}>
-          {content.points.map((point) => {
+          {content.points.map((point, index) => {
             const { Icon, tone } = icons[point.icon]
             return (
-              <li key={point.title} className={classes.point}>
+              <li key={index} className={classes.point}>
                 <span className={`${classes.blob} ${tone}`}>
                   <Icon className={classes.icon} />
                 </span>
                 <div className={classes.pointBody}>
-                  <h3 className={classes.pointTitle}>{point.title}</h3>
+                  <h3 className={classes.pointTitle}>
+                    {point.link ? (
+                      <Link to={point.link} className={classes.pointLink}>
+                        {point.title}
+                        <ArrowRightIcon className={classes.pointArrow} />
+                      </Link>
+                    ) : (
+                      point.title
+                    )}
+                  </h3>
                   <p className={classes.pointText}>{point.text}</p>
                 </div>
               </li>

@@ -1,0 +1,83 @@
+.section {
+  margin-block-start: 1rem;
+  background:
+    url("/motifs/band.svg") repeat-x left top / auto 1.875rem,
+    var(--mantine-color-dark-9);
+  padding-block-start: 1.875rem;
+  color: var(--mantine-color-white);
+}
+
+.inner {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-block: 3rem;
+  padding-inline: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(1.9rem, 7vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.title:lang(ar) {
+  line-height: 1.5;
+}
+
+.text {
+  max-width: 36rem;
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgb(255 255 255 / 82%);
+}
+
+.cta {
+  width: 100%;
+  min-height: 3.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cta:lang(ar) {
+  letter-spacing: 0;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--mantine-color-white);
+  outline-offset: 3px;
+}
+
+.arrow {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.arrow:dir(rtl) {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 36em) {
+  .cta {
+    width: auto;
+  }
+}
+
+@media (min-width: 62em) {
+  .section {
+    border-block-end: 3px solid var(--mantine-color-red-6);
+  }
+
+  .inner {
+    justify-items: center;
+    padding-block: 4.5rem;
+    text-align: center;
+  }
+}

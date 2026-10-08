@@ -1,6 +1,12 @@
 import { createServerFn } from '@tanstack/react-start'
 import { assertIsLocale } from '../paraglide/runtime'
-import { type HomeContent, type HomeImage, homeContent, type PointIcon } from './home'
+import {
+  type HomeContent,
+  type HomeImage,
+  homeContent,
+  type PointIcon,
+  type PointLink,
+} from './home'
 
 type CmsMedia = { url?: string | null; alt: string }
 
@@ -20,7 +26,7 @@ type CmsHome = {
     titleLine2: string
     text: string
     cta: string
-    points: { icon: PointIcon; title: string; text: string }[]
+    points: { icon: PointIcon; title: string; text: string; link?: PointLink | null }[]
   }
   quote: {
     text: string
@@ -29,6 +35,7 @@ type CmsHome = {
     linkLabel: string
     image?: CmsMedia | number | null
   }
+  closing: { title: string; text: string; cta: string }
 }
 
 function toImage(
@@ -39,7 +46,10 @@ function toImage(
   return { src: new URL(media.url, cmsUrl).href, alt: media.alt }
 }
 
-function fromCms({ hero, yesToTogether, quote }: CmsHome, cmsUrl: string): HomeContent | undefined {
+function fromCms(
+  { hero, yesToTogether, quote, closing }: CmsHome,
+  cmsUrl: string,
+): HomeContent | undefined {
   if (!hero?.subtitleLine1) return undefined
   return {
     hero: {
@@ -54,7 +64,12 @@ function fromCms({ hero, yesToTogether, quote }: CmsHome, cmsUrl: string): HomeC
       title: [yesToTogether.titleLine1, yesToTogether.titleLine2],
       text: yesToTogether.text,
       cta: yesToTogether.cta,
-      points: yesToTogether.points.map(({ icon, title, text }) => ({ icon, title, text })),
+      points: yesToTogether.points.map(({ icon, title, text, link }) => ({
+        icon,
+        title,
+        text,
+        link: link ?? undefined,
+      })),
     },
     quote: {
       lines: quote.text.split('\n').filter(Boolean),
@@ -63,6 +78,7 @@ function fromCms({ hero, yesToTogether, quote }: CmsHome, cmsUrl: string): HomeC
       linkLabel: quote.linkLabel,
       image: toImage(quote.image, cmsUrl),
     },
+    closing: { title: closing.title, text: closing.text, cta: closing.cta },
   }
 }
 

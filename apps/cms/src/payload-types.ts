@@ -689,6 +689,7 @@ export interface Home {
       icon: 'document' | 'clock' | 'users';
       title: string;
       text: string;
+      link?: ('/campaign/sign' | '/issue/family-reunification') | null;
       id?: string | null;
     }[];
   };
@@ -701,6 +702,11 @@ export interface Home {
     role: string;
     linkLabel: string;
     image?: (number | null) | Media;
+  };
+  closing: {
+    title: string;
+    text: string;
+    cta: string;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -735,6 +741,7 @@ export interface HomeSelect<T extends boolean = true> {
               icon?: T;
               title?: T;
               text?: T;
+              link?: T;
               id?: T;
             };
       };
@@ -746,6 +753,13 @@ export interface HomeSelect<T extends boolean = true> {
         role?: T;
         linkLabel?: T;
         image?: T;
+      };
+  closing?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        cta?: T;
       };
   updatedAt?: T;
   createdAt?: T;

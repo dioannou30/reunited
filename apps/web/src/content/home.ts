@@ -2,6 +2,8 @@ import type { Locale } from '../paraglide/runtime'
 
 export type PointIcon = 'document' | 'clock' | 'users'
 
+export type PointLink = '/campaign/sign' | '/issue/family-reunification'
+
 export type HomeImage = { src: string; alt: string }
 
 export type HomeContent = {
@@ -17,7 +19,7 @@ export type HomeContent = {
     title: [string, string]
     text: string
     cta: string
-    points: { icon: PointIcon; title: string; text: string }[]
+    points: { icon: PointIcon; title: string; text: string; link?: PointLink }[]
   }
   quote: {
     lines: string[]
@@ -25,6 +27,11 @@ export type HomeContent = {
     role: string
     linkLabel: string
     image?: HomeImage
+  }
+  closing: {
+    title: string
+    text: string
+    cta: string
   }
 }
 
@@ -49,6 +56,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           icon: 'clock',
+          link: '/campaign/sign',
           title: 'Χρειάζεται 1 λεπτό',
           text: 'Υπόγραψε την έκκληση και στήριξε την καμπάνια.',
         },
@@ -60,6 +68,11 @@ export const homeContent: Record<Locale, HomeContent> = {
       name: 'Λεϊλά (ψευδώνυμο)',
       role: 'μητέρα δύο παιδιών',
       linkLabel: 'Διάβασε τις μαρτυρίες',
+    },
+    closing: {
+      title: 'Βοήθησε να ξαναβρεθούν στο ίδιο τραπέζι.',
+      text: 'Οι αρχές έχουν πει «ναι». Με την υπογραφή σου ζητάμε από τα αρμόδια υπουργεία να κάνουν τα επόμενα βήματα.',
+      cta: 'Υπόγραψε την έκκληση',
     },
   },
   en: {
@@ -82,6 +95,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           icon: 'clock',
+          link: '/campaign/sign',
           title: 'It takes 1 minute',
           text: 'Sign the appeal and support the campaign.',
         },
@@ -93,6 +107,11 @@ export const homeContent: Record<Locale, HomeContent> = {
       name: 'Leila (pseudonym)',
       role: 'mother of two',
       linkLabel: 'Read the testimonies',
+    },
+    closing: {
+      title: 'Help them sit at the same table again.',
+      text: 'The authorities have said “yes”. With your signature, we ask the responsible ministries to take the next steps.',
+      cta: 'Sign the appeal',
     },
   },
   ar: {
@@ -109,7 +128,12 @@ export const homeContent: Record<Locale, HomeContent> = {
       cta: 'اعرف المزيد',
       points: [
         { icon: 'document', title: 'الحق موجود', text: 'اعترفت السلطات بالحق في لمّ شمل العائلات.' },
-        { icon: 'clock', title: 'يستغرق دقيقة واحدة', text: 'وقّع النداء وادعم الحملة.' },
+        {
+          icon: 'clock',
+          link: '/campaign/sign',
+          title: 'يستغرق دقيقة واحدة',
+          text: 'وقّع النداء وادعم الحملة.',
+        },
         { icon: 'users', title: 'يفتح على المنصة', text: 'صوتك مهم.' },
       ],
     },
@@ -118,6 +142,11 @@ export const homeContent: Record<Locale, HomeContent> = {
       name: 'ليلى (اسم مستعار)',
       role: 'أم لطفلين',
       linkLabel: 'اقرأ الشهادات',
+    },
+    closing: {
+      title: 'ساعدهم ليجتمعوا من جديد على المائدة نفسها.',
+      text: 'قالت السلطات «نعم». بتوقيعك نطالب الوزارات المعنية باتخاذ الخطوات التالية.',
+      cta: 'وقّع النداء',
     },
   },
 }

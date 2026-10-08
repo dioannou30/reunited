@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { ClosingAsk } from '@/components/home/ClosingAsk'
 import { FamilyQuote } from '@/components/home/FamilyQuote'
 import { Hero } from '@/components/home/Hero'
 import { YesToTogether } from '@/components/home/YesToTogether'
@@ -18,6 +19,7 @@ function Home() {
       <Hero content={content.hero} />
       <YesToTogether content={content.yesToTogether} />
       <FamilyQuote content={content.quote} />
+      <ClosingAsk content={content.closing} />
     </main>
   )
 }
