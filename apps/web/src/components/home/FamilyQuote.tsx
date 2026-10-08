@@ -1,16 +1,17 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRightIcon } from '@/components/icons'
-import { homeContent } from '@/content/home'
-import { getLocale } from '@/paraglide/runtime'
+import type { HomeContent } from '@/content/home'
 import classes from './FamilyQuote.module.css'
 
-export function FamilyQuote() {
-  const { quote } = homeContent[getLocale()]
-
+export function FamilyQuote({ content: quote }: { content: HomeContent['quote'] }) {
   return (
     <section className={classes.section}>
-      <div className={classes.media} aria-hidden="true">
-        <div className={classes.frame} />
+      <div className={classes.media}>
+        {quote.image ? (
+          <img src={quote.image.src} alt={quote.image.alt} className={classes.frame} />
+        ) : (
+          <div className={classes.frame} aria-hidden="true" />
+        )}
       </div>
 
       <figure className={classes.figure}>

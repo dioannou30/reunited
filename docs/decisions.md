@@ -89,6 +89,10 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
   - wired: **form builder** (for "Πάρε μέρος", the get-involved form)
   - deferred until content collections exist: **SEO**, **search**, **redirects** (it refuses an empty collection list)
 - **Roles are defined in code.** Dimitri creates the admin and editor accounts.
+- **Home page (built):** the `home` global holds the hero, the «ναι»/«μαζί» section and the quote, all localized, with optional images from `media`.
+  - The web app reads it in the `/` route loader through a server function (`GET /api/globals/home?locale=…`, 3 s timeout).
+  - Set `CMS_URL` on the web app to switch it on. When `CMS_URL` is unset, the CMS is unreachable, or the global is still empty, the page falls back to `apps/web/src/content/home.ts`, so the live site never breaks.
+  - `pnpm --filter cms seed` fills the global in all three languages from `home.ts`.
 - **Planned content model** (derived from the menu doc, to be confirmed):
   - `Pages`: static subpages such as how it started and what we ask for
   - `TeamMembers`

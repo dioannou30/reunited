@@ -1,19 +1,16 @@
 import { Button } from '@mantine/core'
 import { Link } from '@tanstack/react-router'
 import { ArrowRightIcon, ClockIcon, DocumentIcon, UsersIcon } from '@/components/icons'
-import { homeContent } from '@/content/home'
-import { getLocale } from '@/paraglide/runtime'
+import type { HomeContent, PointIcon } from '@/content/home'
 import classes from './YesToTogether.module.css'
 
-const icons = [
-  { Icon: DocumentIcon, tone: classes.toneOlive },
-  { Icon: ClockIcon, tone: classes.toneRed },
-  { Icon: UsersIcon, tone: classes.toneOlive },
-]
+const icons: Record<PointIcon, { Icon: typeof DocumentIcon; tone: string }> = {
+  document: { Icon: DocumentIcon, tone: classes.toneOlive },
+  clock: { Icon: ClockIcon, tone: classes.toneRed },
+  users: { Icon: UsersIcon, tone: classes.toneOlive },
+}
 
-export function YesToTogether() {
-  const { yesToTogether: content } = homeContent[getLocale()]
-
+export function YesToTogether({ content }: { content: HomeContent['yesToTogether'] }) {
   return (
     <section className={classes.section} aria-labelledby="yes-to-together-title">
       <div className={classes.divider} aria-hidden="true">
@@ -49,8 +46,8 @@ export function YesToTogether() {
         </div>
 
         <ul className={classes.points}>
-          {content.points.map((point, index) => {
-            const { Icon, tone } = icons[index]
+          {content.points.map((point) => {
+            const { Icon, tone } = icons[point.icon]
             return (
               <li key={point.title} className={classes.point}>
                 <span className={`${classes.blob} ${tone}`}>

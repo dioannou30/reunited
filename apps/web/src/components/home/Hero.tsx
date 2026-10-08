@@ -1,13 +1,10 @@
 import { Button } from '@mantine/core'
 import { Link } from '@tanstack/react-router'
 import { ArrowRightIcon } from '@/components/icons'
-import { homeContent } from '@/content/home'
-import { getLocale } from '@/paraglide/runtime'
+import type { HomeContent } from '@/content/home'
 import classes from './Hero.module.css'
 
-export function Hero() {
-  const { hero } = homeContent[getLocale()]
-
+export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
   return (
     <section className={classes.hero} aria-labelledby="hero-title">
       <div className={classes.inner}>
@@ -64,7 +61,11 @@ export function Hero() {
       </div>
 
       <div className={classes.media}>
-        <div className={classes.frame} aria-hidden="true" />
+        {hero.image ? (
+          <img src={hero.image.src} alt={hero.image.alt} className={classes.frame} />
+        ) : (
+          <div className={classes.frame} aria-hidden="true" />
+        )}
         <img
           src="/motifs/olive-sprig.svg"
           alt=""

@@ -1,4 +1,8 @@
-import type { Locale } from '@/paraglide/runtime'
+import type { Locale } from '../paraglide/runtime'
+
+export type PointIcon = 'document' | 'clock' | 'users'
+
+export type HomeImage = { src: string; alt: string }
 
 export type HomeContent = {
   hero: {
@@ -7,18 +11,20 @@ export type HomeContent = {
     lede: string
     primaryCta: string
     secondaryCta: string
+    image?: HomeImage
   }
   yesToTogether: {
     title: [string, string]
     text: string
     cta: string
-    points: { title: string; text: string }[]
+    points: { icon: PointIcon; title: string; text: string }[]
   }
   quote: {
     lines: string[]
     name: string
     role: string
     linkLabel: string
+    image?: HomeImage
   }
 }
 
@@ -37,11 +43,16 @@ export const homeContent: Record<Locale, HomeContent> = {
       cta: 'Μάθε περισσότερα',
       points: [
         {
+          icon: 'document',
           title: 'Υπάρχει δικαίωμα',
           text: 'Οι αρχές έχουν αναγνωρίσει το δικαίωμα στην οικογενειακή επανένωση.',
         },
-        { title: 'Χρειάζεται 1 λεπτό', text: 'Υπόγραψε την έκκληση και στήριξε την καμπάνια.' },
-        { title: 'Ανοίγει στην πλατφόρμα', text: 'Η φωνή σου μετράει.' },
+        {
+          icon: 'clock',
+          title: 'Χρειάζεται 1 λεπτό',
+          text: 'Υπόγραψε την έκκληση και στήριξε την καμπάνια.',
+        },
+        { icon: 'users', title: 'Ανοίγει στην πλατφόρμα', text: 'Η φωνή σου μετράει.' },
       ],
     },
     quote: {
@@ -65,11 +76,16 @@ export const homeContent: Record<Locale, HomeContent> = {
       cta: 'Learn more',
       points: [
         {
+          icon: 'document',
           title: 'The right exists',
           text: 'The authorities have recognised the right to family reunification.',
         },
-        { title: 'It takes 1 minute', text: 'Sign the appeal and support the campaign.' },
-        { title: 'Opens on the platform', text: 'Your voice counts.' },
+        {
+          icon: 'clock',
+          title: 'It takes 1 minute',
+          text: 'Sign the appeal and support the campaign.',
+        },
+        { icon: 'users', title: 'Opens on the platform', text: 'Your voice counts.' },
       ],
     },
     quote: {
@@ -92,9 +108,9 @@ export const homeContent: Record<Locale, HomeContent> = {
       text: 'بالنسبة لعائلات اللاجئين الفلسطينيين في اليونان، كان جواب السلطات «نعم». لكن لمّ الشمل لم يتحقق بعد، لأن الوزارات المعنية لا تتخذ الخطوات التالية.',
       cta: 'اعرف المزيد',
       points: [
-        { title: 'الحق موجود', text: 'اعترفت السلطات بالحق في لمّ شمل العائلات.' },
-        { title: 'يستغرق دقيقة واحدة', text: 'وقّع النداء وادعم الحملة.' },
-        { title: 'يفتح على المنصة', text: 'صوتك مهم.' },
+        { icon: 'document', title: 'الحق موجود', text: 'اعترفت السلطات بالحق في لمّ شمل العائلات.' },
+        { icon: 'clock', title: 'يستغرق دقيقة واحدة', text: 'وقّع النداء وادعم الحملة.' },
+        { icon: 'users', title: 'يفتح على المنصة', text: 'صوتك مهم.' },
       ],
     },
     quote: {
