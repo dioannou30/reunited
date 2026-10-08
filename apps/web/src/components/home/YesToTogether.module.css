@@ -1,0 +1,181 @@
+.section {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-block: 3.5rem 3rem;
+  padding-inline: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block-end: 2.5rem;
+}
+
+.wave {
+  flex: 1;
+  height: 1rem;
+  background: url("/motifs/wave.svg") repeat-x left center / auto 100%;
+}
+
+.sprig {
+  width: 2.5rem;
+  height: auto;
+  transform: rotate(48deg);
+}
+
+.inner {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.intro {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.title {
+  display: grid;
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(2rem, 8vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--mantine-color-black);
+}
+
+.text {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--mantine-color-gray-8);
+}
+
+.cta {
+  min-height: 2.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cta:lang(ar) {
+  letter-spacing: 0;
+}
+
+.arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.arrow:dir(rtl) {
+  transform: scaleX(-1);
+}
+
+.points {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.blob {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+}
+
+.toneOlive {
+  background-color: var(--mantine-color-olive-1);
+  color: var(--mantine-color-olive-8);
+}
+
+.toneRed {
+  background-color: var(--mantine-color-red-1);
+  color: var(--mantine-color-red-8);
+}
+
+.icon {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.pointBody {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.pointTitle {
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--mantine-color-black);
+}
+
+.pointText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--mantine-color-gray-8);
+}
+
+@media (min-width: 62em) {
+  .section {
+    padding-block: 4.5rem 4rem;
+  }
+
+  .divider {
+    margin-block-end: 3.5rem;
+  }
+
+  .sprig {
+    width: 3rem;
+  }
+
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .point {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: start;
+    gap: 1rem;
+    padding-inline: 1.25rem;
+    text-align: center;
+  }
+
+  .point + .point {
+    border-inline-start: 1px solid var(--mantine-color-gray-4);
+  }
+
+  .blob {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

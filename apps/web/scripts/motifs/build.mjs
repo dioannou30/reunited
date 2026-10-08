@@ -221,6 +221,7 @@ const files = {
   'torn-mask.svg': tornMask(),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
   'olive-sprig.svg': oliveSprig(),
+  'wave.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="16" viewBox="0 0 96 16"><path d="M0 8C12 3.5 24 3.5 36 7.5S60 12.5 72 9 90 4 96 8" stroke="${colors.ink}" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
 }
 for (const [name, svg] of Object.entries(files)) {
   writeFileSync(resolve(outDir, name), svg)
