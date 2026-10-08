@@ -703,11 +703,6 @@ export interface Home {
     linkLabel: string;
     image?: (number | null) | Media;
   };
-  closing: {
-    title: string;
-    text: string;
-    cta: string;
-  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -753,13 +748,6 @@ export interface HomeSelect<T extends boolean = true> {
         role?: T;
         linkLabel?: T;
         image?: T;
-      };
-  closing?:
-    | T
-    | {
-        title?: T;
-        text?: T;
-        cta?: T;
       };
   updatedAt?: T;
   createdAt?: T;

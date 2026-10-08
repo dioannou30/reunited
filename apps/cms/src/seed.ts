@@ -9,7 +9,7 @@ const payload = await getPayload({ config })
 let pointIds: (string | null | undefined)[] = []
 
 for (const locale of ['el', 'en', 'ar'] as const) {
-  const { hero, yesToTogether, quote, closing } = homeContent[locale]
+  const { hero, yesToTogether, quote } = homeContent[locale]
   const saved = await payload.updateGlobal({
     slug: 'home',
     locale,
@@ -42,7 +42,6 @@ for (const locale of ['el', 'en', 'ar'] as const) {
         role: quote.role,
         linkLabel: quote.linkLabel,
       },
-      closing,
     },
   })
   pointIds = saved.yesToTogether.points.map((point) => point.id)

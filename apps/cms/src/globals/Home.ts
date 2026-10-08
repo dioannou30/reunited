@@ -104,11 +104,5 @@ export const Home: GlobalConfig = {
         image('Εικονογράφηση'),
       ],
     },
-    {
-      name: 'closing',
-      label: 'Τελική έκκληση',
-      type: 'group',
-      fields: [text('title', 'Τίτλος'), textarea('text', 'Κείμενο'), text('cta', 'Κουμπί')],
-    },
   ],
 }

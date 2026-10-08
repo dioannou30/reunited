@@ -35,7 +35,6 @@ type CmsHome = {
     linkLabel: string
     image?: CmsMedia | number | null
   }
-  closing: { title: string; text: string; cta: string }
 }
 
 function toImage(
@@ -46,10 +45,7 @@ function toImage(
   return { src: new URL(media.url, cmsUrl).href, alt: media.alt }
 }
 
-function fromCms(
-  { hero, yesToTogether, quote, closing }: CmsHome,
-  cmsUrl: string,
-): HomeContent | undefined {
+function fromCms({ hero, yesToTogether, quote }: CmsHome, cmsUrl: string): HomeContent | undefined {
   if (!hero?.subtitleLine1) return undefined
   return {
     hero: {
@@ -78,7 +74,6 @@ function fromCms(
       linkLabel: quote.linkLabel,
       image: toImage(quote.image, cmsUrl),
     },
-    closing: { title: closing.title, text: closing.text, cta: closing.cta },
   }
 }
 

@@ -28,11 +28,6 @@ export type HomeContent = {
     linkLabel: string
     image?: HomeImage
   }
-  closing: {
-    title: string
-    text: string
-    cta: string
-  }
 }
 
 export const homeContent: Record<Locale, HomeContent> = {
@@ -69,11 +64,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       role: 'μητέρα δύο παιδιών',
       linkLabel: 'Διάβασε τις μαρτυρίες',
     },
-    closing: {
-      title: 'Βοήθησε να ξαναβρεθούν στο ίδιο τραπέζι.',
-      text: 'Οι αρχές έχουν πει «ναι». Με την υπογραφή σου ζητάμε από τα αρμόδια υπουργεία να κάνουν τα επόμενα βήματα.',
-      cta: 'Υπόγραψε την έκκληση',
-    },
   },
   en: {
     hero: {
@@ -108,11 +98,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       role: 'mother of two',
       linkLabel: 'Read the testimonies',
     },
-    closing: {
-      title: 'Help them sit at the same table again.',
-      text: 'The authorities have said “yes”. With your signature, we ask the responsible ministries to take the next steps.',
-      cta: 'Sign the appeal',
-    },
   },
   ar: {
     hero: {
@@ -142,11 +127,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       name: 'ليلى (اسم مستعار)',
       role: 'أم لطفلين',
       linkLabel: 'اقرأ الشهادات',
-    },
-    closing: {
-      title: 'ساعدهم ليجتمعوا من جديد على المائدة نفسها.',
-      text: 'قالت السلطات «نعم». بتوقيعك نطالب الوزارات المعنية باتخاذ الخطوات التالية.',
-      cta: 'وقّع النداء',
     },
   },
 }
