@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { FamilyQuote } from '@/components/home/FamilyQuote'
 import { Hero } from '@/components/home/Hero'
 import { YesToTogether } from '@/components/home/YesToTogether'
 
@@ -11,6 +12,7 @@ function Home() {
     <main id="main">
       <Hero />
       <YesToTogether />
+      <FamilyQuote />
     </main>
   )
 }

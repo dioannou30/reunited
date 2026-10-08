@@ -14,6 +14,12 @@ export type HomeContent = {
     cta: string
     points: { title: string; text: string }[]
   }
+  quote: {
+    lines: string[]
+    name: string
+    role: string
+    linkLabel: string
+  }
 }
 
 export const homeContent: Record<Locale, HomeContent> = {
@@ -38,6 +44,12 @@ export const homeContent: Record<Locale, HomeContent> = {
         { title: 'Ανοίγει στην πλατφόρμα', text: 'Η φωνή σου μετράει.' },
       ],
     },
+    quote: {
+      lines: ['Θέλω μόνο', 'να είμαστε ξανά μαζί,', 'στο ίδιο τραπέζι.'],
+      name: 'Λεϊλά (ψευδώνυμο)',
+      role: 'μητέρα δύο παιδιών',
+      linkLabel: 'Διάβασε τις μαρτυρίες',
+    },
   },
   en: {
     hero: {
@@ -60,6 +72,12 @@ export const homeContent: Record<Locale, HomeContent> = {
         { title: 'Opens on the platform', text: 'Your voice counts.' },
       ],
     },
+    quote: {
+      lines: ['All I want', 'is for us to be together again,', 'at the same table.'],
+      name: 'Leila (pseudonym)',
+      role: 'mother of two',
+      linkLabel: 'Read the testimonies',
+    },
   },
   ar: {
     hero: {
@@ -78,6 +96,12 @@ export const homeContent: Record<Locale, HomeContent> = {
         { title: 'يستغرق دقيقة واحدة', text: 'وقّع النداء وادعم الحملة.' },
         { title: 'يفتح على المنصة', text: 'صوتك مهم.' },
       ],
+    },
+    quote: {
+      lines: ['كل ما أريده', 'أن نكون معًا من جديد،', 'على المائدة نفسها.'],
+      name: 'ليلى (اسم مستعار)',
+      role: 'أم لطفلين',
+      linkLabel: 'اقرأ الشهادات',
     },
   },
 }
