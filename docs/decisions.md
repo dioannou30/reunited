@@ -91,6 +91,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
   - deferred until content collections exist: **SEO**, **search**, **redirects** (it refuses an empty collection list)
 - **Roles are defined in code.** Dimitri creates the admin and editor accounts.
 - **The CMS does not hold static page text.** It is for dynamic content such as events. Static pages (the home page included) use Paraglide messages; anything that later needs editing in the CMS moves there case by case.
+- **Team members (built):** `team-members` collection (name, role, short bio, optional photo, order; text fields localized). The web reads it in the `/about/team` loader with `?locale=`. While `CMS_URL` is not set, the page shows six obviously fictional mock members from `apps/web/src/cms/team.mock.ts` so the design can be shown on Vercel. Remove the mock fallback before launch.
 - **Planned content model** (derived from the menu doc, to be confirmed):
   - `Pages`: static subpages such as how it started and what we ask for
   - `TeamMembers`

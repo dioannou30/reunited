@@ -1,5 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { assertIsLocale } from '../paraglide/runtime'
+import { mockTeamMembers } from './team.mock'
 
 export type TeamMember = {
   id: string
@@ -21,7 +22,7 @@ export const getTeamMembers = createServerFn({ method: 'GET' })
   .validator((locale: string) => assertIsLocale(locale))
   .handler(async ({ data: locale }): Promise<TeamMember[]> => {
     const cmsUrl = process.env.CMS_URL
-    if (!cmsUrl) return []
+    if (!cmsUrl) return mockTeamMembers(locale)
     try {
       const response = await fetch(
         `${cmsUrl}/api/team-members?locale=${locale}&sort=order&depth=1&limit=100`,

@@ -3,6 +3,8 @@ import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import classes from './TeamList.module.css'
 
+const tones = [classes.toneOlive, classes.toneRed, classes.toneSand]
+
 function initials(name: string) {
   const locale = getLocale()
   const words = name.trim().split(/\s+/)
@@ -22,28 +24,26 @@ export function TeamList({ members }: { members: TeamMember[] }) {
 
   return (
     <ul className={classes.list}>
-      {members.map((member) => (
+      {members.map((member, index) => (
         <li key={member.id} className={classes.member}>
-          <div className={classes.portrait}>
-            {member.photo ? (
-              <img
-                src={member.photo.src}
-                alt={member.photo.alt}
-                className={classes.photo}
-                loading="lazy"
-              />
-            ) : (
-              <span className={classes.monogram} aria-hidden="true">
-                {initials(member.name)}
-              </span>
-            )}
-          </div>
-          <div className={classes.table} aria-hidden="true" />
-          <div className={classes.body}>
-            <h2 className={classes.name}>{member.name}</h2>
-            <p className={classes.role}>{member.role}</p>
-            {member.bio ? <p className={classes.bio}>{member.bio}</p> : null}
-          </div>
+          {member.photo ? (
+            <img
+              src={member.photo.src}
+              alt={member.photo.alt}
+              className={classes.frame}
+              loading="lazy"
+            />
+          ) : (
+            <span
+              className={`${classes.frame} ${classes.monogram} ${tones[index % tones.length]}`}
+              aria-hidden="true"
+            >
+              {initials(member.name)}
+            </span>
+          )}
+          <h2 className={classes.name}>{member.name}</h2>
+          <p className={classes.role}>{member.role}</p>
+          {member.bio ? <p className={classes.bio}>{member.bio}</p> : null}
         </li>
       ))}
     </ul>
