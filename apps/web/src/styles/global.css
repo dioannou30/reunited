@@ -1,3 +1,8 @@
+::selection {
+  background-color: var(--mantine-color-red-1);
+  color: var(--mantine-color-black);
+}
+
 .skip-link {
   position: absolute;
   inset-inline-start: 1rem;

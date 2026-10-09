@@ -1,0 +1,118 @@
+.list {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-block: 0.5rem 1rem;
+  padding-inline: 1rem;
+  list-style: none;
+}
+
+.member {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.portrait {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 0.4rem;
+  background: url("/motifs/stitch-ring.svg") no-repeat center / 100% 100%;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--mantine-color-olive-1);
+  font-family: var(--mantine-font-family-headings);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--mantine-color-olive-8);
+}
+
+.body {
+  display: grid;
+  gap: 0.25rem;
+  padding-block-start: 0.5rem;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--mantine-color-black);
+}
+
+.role {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--mantine-color-red-7);
+}
+
+.bio {
+  max-width: 34rem;
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--mantine-color-gray-8);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-block: 1rem 2rem;
+  padding-inline: 1rem;
+  font-size: 1.125rem;
+  color: var(--mantine-color-gray-8);
+}
+
+.empty p {
+  margin: 0;
+}
+
+@media (min-width: 48em) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 2.5rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem 3rem;
+  }
+
+  .member {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .portrait {
+    width: 8.5rem;
+  }
+
+  .monogram {
+    font-size: 2.5rem;
+  }
+}

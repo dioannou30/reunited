@@ -58,5 +58,22 @@
   "home_quote_line_3": "at the same table.",
   "home_quote_name": "Leila (pseudonym)",
   "home_quote_role": "mother of two",
-  "home_quote_link": "Read the testimonies"
+  "home_quote_link": "Read the testimonies",
+  "about_story_lede": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+  "about_story_1_date": "Month XXXX",
+  "about_story_1_title": "Lorem ipsum dolor",
+  "about_story_1_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "about_story_2_date": "Month XXXX",
+  "about_story_2_title": "Sit amet elit",
+  "about_story_2_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "about_story_3_date": "Month XXXX",
+  "about_story_3_title": "Sed do eiusmod",
+  "about_story_3_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "about_story_4_date": "Month XXXX",
+  "about_story_4_title": "Tempor incididunt",
+  "about_story_4_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "about_story_next": "Meet the team",
+  "about_team_lede": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+  "about_team_empty": "The team will be introduced here soon.",
+  "about_team_prev": "Read how it started"
 }

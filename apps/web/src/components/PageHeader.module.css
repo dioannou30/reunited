@@ -1,0 +1,49 @@
+.header {
+  display: grid;
+  gap: 1rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-block: 2.5rem 2rem;
+  padding-inline: 1rem;
+}
+
+.title {
+  max-width: 18ch;
+  margin: 0;
+  padding-block-end: 0.35em;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(2.25rem, 9vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--mantine-color-black);
+  background: url("/motifs/brush-underline.svg") no-repeat left bottom / min(12rem, 60%) 0.3em;
+}
+
+.title:dir(rtl) {
+  background-position: right bottom;
+}
+
+.title:lang(ar) {
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--mantine-color-gray-8);
+}
+
+@media (min-width: 62em) {
+  .header {
+    padding-block: 4rem 3rem;
+  }
+
+  .lede {
+    font-size: 1.25rem;
+  }
+}

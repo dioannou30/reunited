@@ -1,0 +1,111 @@
+.thread {
+  --thread-x: 1rem;
+  --knot: 2rem;
+
+  position: relative;
+  display: grid;
+  gap: 2.75rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-block: 0.5rem 1rem;
+  padding-inline: calc(var(--thread-x) + var(--knot) / 2 + 1.75rem) 1rem;
+  list-style: none;
+}
+
+.thread::before {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: calc(var(--thread-x) + var(--knot) / 2 - 0.5rem);
+  width: 1rem;
+  background: url("/motifs/stitch-line.svg") repeat-y center top / 1rem 1.25rem;
+  content: "";
+}
+
+.station {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 38rem;
+}
+
+.knot {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: calc(-1.75rem - var(--knot));
+  width: var(--knot);
+  height: var(--knot);
+}
+
+.date {
+  margin: 0;
+  padding-block-start: 0.3rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--mantine-color-olive-7);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(1.5rem, 5vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+  color: var(--mantine-color-black);
+}
+
+.title:lang(ar) {
+  line-height: 1.5;
+}
+
+.text {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--mantine-color-gray-8);
+}
+
+@media (min-width: 62em) {
+  .thread {
+    --thread-x: 3rem;
+    --knot: 2.5rem;
+
+    gap: 4rem;
+    padding-block: 1rem 2rem;
+  }
+
+  .station {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    column-gap: 2.5rem;
+    max-width: 56rem;
+  }
+
+  .date {
+    grid-row: 1 / span 2;
+  }
+
+  .title,
+  .text {
+    grid-column: 2;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .thread::before {
+      animation: stitch linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 60%;
+    }
+  }
+}
+
+@keyframes stitch {
+  from {
+    clip-path: inset(0 0 96% 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
