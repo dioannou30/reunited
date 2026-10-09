@@ -277,8 +277,6 @@ const files = {
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
   'olive-sprig.svg': oliveSprig(),
   'olive-twig.svg': oliveTwig(),
-  'stitch-line.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20"><path d="M4.5 4.5L11.5 13.5M11.5 4.5L4.5 13.5" stroke="${colors.red}" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>`,
-  'stitch-knot.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#F1EADA" stroke="${colors.red}" stroke-width="2.4" stroke-dasharray="4 3.2" stroke-linecap="round"/><path d="M11 11L21 21M21 11L11 21" stroke="${colors.red}" stroke-width="3" stroke-linecap="round"/></svg>`,
   'stitch-ring.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="none" stroke="${colors.red}" stroke-width="3" stroke-dasharray="7 5" stroke-linecap="round"/></svg>`,
   'wave.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="16" viewBox="0 0 96 16"><path d="M0 8C12 3.5 24 3.5 36 7.5S60 12.5 72 9 90 4 96 8" stroke="${colors.ink}" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
 }

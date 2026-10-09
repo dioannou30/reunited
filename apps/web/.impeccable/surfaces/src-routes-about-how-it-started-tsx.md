@@ -15,18 +15,18 @@ Constraints: inherit the home page world (paper, ink, poster red/green/olive, ke
 
 ## Direction contract
 
-THESIS: The origin story is a single red embroidery thread stitched down the page, tying each milestone like a knot; it refuses the stock "about us" of a hero photo, a mission paragraph and a team grid floating in white space.
+THESIS: The origin story reads as a letter from the campaign, and the team sits side by side at one shared table, echoing the home quote "στο ίδιο τραπέζι"; it refuses the stock about page of hero photo, mission blurb and floating team grid.
 
-OWN-WORLD: Paper ground, ink type, one red cross-stitch thread (X stitches, poster red) running along the inline-start edge, olive accents for labels, torn-paper frames for photos, monogram badges ringed in red stitches when a member has no photo.
+OWN-WORLD: Paper ground, ink type, a narrow letter column with a large opening line over a hand-drawn wave rule, the ReUnited wordmark as signature, the hero olive branch hanging beside the letter on desktop, and the keffiyeh band as the tabletop under the team portraits; portraits ringed in red stitches, olive monograms when there is no photo.
 
-STORY: The visitor reads where the campaign came from in four short stations, understands it grew from contact with the families, then meets the people behind it and can move on to sign.
+STORY: The visitor reads why the campaign started in one calm letter, then sees the people behind it seated together, and can move on to sign.
 
-FIRST VIEWPORT: Large h1 (no eyebrow; the header nav marks the section), short lede; directly below, the thread starts at the inline-start edge and the first station (date label, title, text) sits beside its knot. On mobile the thread runs 1rem from the edge with text beside it.
+FIRST VIEWPORT: Large h1 with brush underline and lede; below, the letter's opening line at display size over the wave rule, the first paragraph starting within the first screen; the olive branch at the inline end on desktop.
 
-FORM: Thread timeline, position 3 on the ordered structure list, seed key 13b3b2de.
+FORM: Shared-table letter, position 5 on the ordered structure list, seed key 13b3b2de (second lock after the thread timeline was rejected).
 
-Signature interaction: the thread is stitched down as the list scrolls into view (CSS scroll-driven scaleY on the stitch line), content always visible; reduced motion and unsupported browsers show the full thread.
+Signature interaction: none animated, per the owner's no-moving-text rule; the continuous keffiyeh tabletop joining every seat on desktop is the memorable moment.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-Unresolved: real text and dates for the story; team photos and consent.
+Unresolved: real letter text; team members, photos and consent.

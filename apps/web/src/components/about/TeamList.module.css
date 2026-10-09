@@ -86,6 +86,20 @@
   color: var(--mantine-color-gray-8);
 }
 
+.empty img {
+  flex: none;
+  width: 4.5rem;
+  height: auto;
+}
+
+.empty img:dir(rtl) {
+  transform: scaleX(-1);
+}
+
+.table {
+  display: none;
+}
+
 .empty p {
   margin: 0;
 }
@@ -100,12 +114,28 @@
 @media (min-width: 62em) {
   .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3.5rem 3rem;
+    gap: 4rem 0;
   }
 
   .member {
     grid-template-columns: 1fr;
-    justify-items: start;
+    justify-items: center;
+    gap: 0;
+    text-align: center;
+  }
+
+  .table {
+    display: block;
+    justify-self: stretch;
+    height: 1.875rem;
+    margin-block: 1rem 1.25rem;
+    background: url("/motifs/band.svg") repeat-x left top / auto 100%;
+  }
+
+  .body {
+    justify-items: center;
+    padding-block-start: 0;
+    padding-inline: 1.5rem;
   }
 
   .portrait {

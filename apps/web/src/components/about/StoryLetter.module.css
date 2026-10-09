@@ -1,0 +1,75 @@
+.wrap {
+  position: relative;
+  display: grid;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-block: 0.5rem 1rem;
+  padding-inline: 1rem;
+}
+
+.letter {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 40rem;
+}
+
+.opening {
+  margin: 0 0 0.75rem;
+  padding-block-end: 1.25rem;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(1.5rem, 5.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: balance;
+  color: var(--mantine-color-black);
+  background: url("/motifs/wave.svg") repeat-x left bottom / 6rem 0.75rem;
+}
+
+.opening:lang(ar) {
+  line-height: 1.7;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--mantine-color-gray-9);
+}
+
+.paragraph:lang(ar) {
+  line-height: 2;
+}
+
+.signature {
+  width: 8rem;
+  height: auto;
+  margin-block-start: 1rem;
+}
+
+.olive {
+  display: none;
+}
+
+@media (min-width: 62em) {
+  .wrap {
+    grid-template-columns: minmax(0, 40rem) 1fr;
+    column-gap: 4rem;
+    padding-block: 1rem 2rem;
+  }
+
+  .opening {
+    margin-block-end: 1.25rem;
+  }
+
+  .olive {
+    display: block;
+    justify-self: center;
+    width: 10rem;
+    height: auto;
+    margin-block-start: -2rem;
+  }
+
+  .olive:dir(rtl) {
+    transform: scaleX(-1);
+  }
+}

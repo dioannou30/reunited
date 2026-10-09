@@ -14,7 +14,7 @@ export function TeamList({ members }: { members: TeamMember[] }) {
   if (members.length === 0) {
     return (
       <div className={classes.empty}>
-        <img src="/motifs/stitch-knot.svg" alt="" width={32} height={32} />
+        <img src="/motifs/olive-twig.svg" alt="" width={140} height={80} />
         <p>{m.about_team_empty()}</p>
       </div>
     )
@@ -38,6 +38,7 @@ export function TeamList({ members }: { members: TeamMember[] }) {
               </span>
             )}
           </div>
+          <div className={classes.table} aria-hidden="true" />
           <div className={classes.body}>
             <h2 className={classes.name}>{member.name}</h2>
             <p className={classes.role}>{member.role}</p>
