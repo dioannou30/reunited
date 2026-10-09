@@ -23,16 +23,10 @@
   color: var(--mantine-color-olive-7);
 }
 
-.stitched:dir(rtl) {
-  background-position: right bottom;
-}
-
 .stitched {
   align-self: start;
   justify-self: start;
-  padding-block-end: 0.6rem;
   color: var(--mantine-color-red-7);
-  background: url("/motifs/stitch-bridge.svg") no-repeat left bottom / 1.5rem 0.75rem;
 }
 
 .body {
