@@ -1,14 +1,8 @@
-import { Link } from '@tanstack/react-router'
+import { Link, type LinkProps } from '@tanstack/react-router'
 import { ArrowRightIcon } from '@/components/icons'
-import classes from './AboutLink.module.css'
+import classes from './NextLink.module.css'
 
-export function AboutLink({
-  to,
-  label,
-}: {
-  to: '/about/how-it-started' | '/about/team'
-  label: string
-}) {
+export function NextLink({ to, label }: { to: LinkProps['to']; label: string }) {
   return (
     <div className={classes.wrap}>
       <Link to={to} className={classes.link}>

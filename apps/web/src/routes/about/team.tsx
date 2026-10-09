@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { getTeamMembers } from '@/cms/team'
-import { AboutLink } from '@/components/about/AboutLink'
 import { TeamList } from '@/components/about/TeamList'
+import { NextLink } from '@/components/NextLink'
 import { PageHeader } from '@/components/PageHeader'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
@@ -19,7 +19,7 @@ function Team() {
     <main id="main">
       <PageHeader title={m.nav_about_team()} lede={m.about_team_lede()} />
       <TeamList members={members} />
-      <AboutLink to="/about/how-it-started" label={m.about_team_prev()} />
+      <NextLink to="/about/how-it-started" label={m.about_team_prev()} />
     </main>
   )
 }
