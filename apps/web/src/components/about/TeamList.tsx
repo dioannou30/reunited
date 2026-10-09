@@ -1,9 +1,11 @@
+import { Link } from '@tanstack/react-router'
 import type { TeamMember } from '@/cms/team'
+import { ArrowRightIcon } from '@/components/icons'
 import { m } from '@/paraglide/messages'
 import { getLocale } from '@/paraglide/runtime'
 import classes from './TeamList.module.css'
 
-const tones = [classes.toneOlive, classes.toneRed, classes.toneSand]
+const tones = [classes.toneOlive, classes.toneSand, classes.toneSage]
 
 function initials(name: string) {
   const locale = getLocale()
@@ -17,7 +19,13 @@ export function TeamList({ members }: { members: TeamMember[] }) {
     return (
       <div className={classes.empty}>
         <img src="/motifs/olive-twig.svg" alt="" width={140} height={80} />
-        <p>{m.about_team_empty()}</p>
+        <div className={classes.emptyBody}>
+          <p>{m.about_team_empty()}</p>
+          <Link to="/help/get-involved" className={classes.emptyLink}>
+            {m.nav_help_join()}
+            <ArrowRightIcon className={classes.emptyArrow} />
+          </Link>
+        </div>
       </div>
     )
   }
@@ -35,7 +43,7 @@ export function TeamList({ members }: { members: TeamMember[] }) {
             />
           ) : (
             <span
-              className={`${classes.frame} ${classes.monogram} ${tones[index % tones.length]}`}
+              className={`${classes.monogram} ${tones[index % tones.length]}`}
               aria-hidden="true"
             >
               {initials(member.name)}

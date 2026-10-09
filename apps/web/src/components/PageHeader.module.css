@@ -10,7 +10,6 @@
 .title {
   max-width: 18ch;
   margin: 0;
-  padding-block-end: 0.35em;
   font-family: var(--mantine-font-family-headings);
   font-size: clamp(2.25rem, 9vw, 4.25rem);
   font-weight: 700;
@@ -18,10 +17,16 @@
   letter-spacing: -0.02em;
   text-wrap: balance;
   color: var(--mantine-color-black);
-  background: url("/motifs/brush-underline.svg") no-repeat left bottom / min(12rem, 60%) 0.3em;
 }
 
-.title:dir(rtl) {
+.titleText {
+  padding-block-end: 0.3em;
+  background: url("/motifs/brush-underline.svg") no-repeat left bottom / 100% 0.28em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.titleText:dir(rtl) {
   background-position: right bottom;
 }
 

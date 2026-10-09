@@ -13,13 +13,22 @@ export function StoryLetter() {
             {paragraph()}
           </p>
         ))}
-        <img
-          src="/logo.svg"
-          alt="ReUnited"
-          width={1146}
-          height={442}
-          className={classes.signature}
-        />
+        <div className={classes.signatureRow}>
+          <img
+            src="/logo.svg"
+            alt="ReUnited"
+            width={1146}
+            height={442}
+            className={classes.signature}
+          />
+          <img
+            src="/motifs/olive-twig.svg"
+            alt=""
+            width={140}
+            height={80}
+            className={classes.twig}
+          />
+        </div>
       </div>
       <img
         src="/motifs/olive-sprig.svg"

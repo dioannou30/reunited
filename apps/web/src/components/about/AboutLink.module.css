@@ -31,14 +31,16 @@
     transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.link:hover .circle {
+.link:hover .circle,
+.link:focus-visible .circle {
   background-color: var(--mantine-color-red-6);
   border-color: var(--mantine-color-red-6);
   color: var(--mantine-color-white);
   transform: translateX(0.25rem);
 }
 
-.link:hover .circle:dir(rtl) {
+.link:hover .circle:dir(rtl),
+.link:focus-visible .circle:dir(rtl) {
   transform: translateX(-0.25rem);
 }
 

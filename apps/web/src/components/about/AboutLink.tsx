@@ -10,13 +10,13 @@ export function AboutLink({
   label: string
 }) {
   return (
-    <nav className={classes.wrap} aria-label={label}>
+    <div className={classes.wrap}>
       <Link to={to} className={classes.link}>
         {label}
         <span className={classes.circle}>
           <ArrowRightIcon className={classes.arrow} />
         </span>
       </Link>
-    </nav>
+    </div>
   )
 }
