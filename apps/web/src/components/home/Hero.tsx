@@ -1,17 +1,17 @@
 import { Button } from '@mantine/core'
 import { Link } from '@tanstack/react-router'
 import { ArrowRightIcon } from '@/components/icons'
-import type { HomeContent } from '@/content/home'
+import { m } from '@/paraglide/messages'
 import classes from './Hero.module.css'
 
-export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
+export function Hero() {
   return (
     <section className={classes.hero} aria-labelledby="hero-title">
       <div className={classes.inner}>
         <div className={classes.intro}>
           <p className={classes.eyebrow}>
-            <span>{hero.eyebrow[0]}</span>
-            <span>{hero.eyebrow[1]}</span>
+            <span>{m.home_hero_eyebrow_1()}</span>
+            <span>{m.home_hero_eyebrow_2()}</span>
           </p>
           <h1 id="hero-title" className={classes.title}>
             <img
@@ -22,14 +22,14 @@ export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
               className={classes.wordmark}
             />
             <span className={classes.subtitle}>
-              <span>{hero.subtitle[0]}</span>{' '}
-              <span className={classes.underlined}>{hero.subtitle[1]}</span>
+              <span>{m.home_hero_subtitle_1()}</span>{' '}
+              <span className={classes.underlined}>{m.home_hero_subtitle_2()}</span>
             </span>
           </h1>
         </div>
 
         <div className={classes.side}>
-          <p className={classes.lede}>{hero.lede}</p>
+          <p className={classes.lede}>{m.home_hero_lede()}</p>
           <div className={classes.ctas}>
             <Button
               component={Link}
@@ -41,7 +41,7 @@ export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
               className={classes.cta}
               classNames={{ label: classes.ctaLabel }}
             >
-              {hero.primaryCta}
+              {m.home_hero_cta_primary()}
             </Button>
             <Button
               component={Link}
@@ -54,18 +54,14 @@ export function Hero({ content: hero }: { content: HomeContent['hero'] }) {
               className={classes.cta}
               classNames={{ label: classes.ctaLabel }}
             >
-              {hero.secondaryCta}
+              {m.home_hero_cta_secondary()}
             </Button>
           </div>
         </div>
       </div>
 
       <div className={classes.media}>
-        {hero.image ? (
-          <img src={hero.image.src} alt={hero.image.alt} className={classes.frame} />
-        ) : (
-          <div className={classes.frame} aria-hidden="true" />
-        )}
+        <div className={classes.frame} aria-hidden="true" />
         <img
           src="/motifs/olive-sprig.svg"
           alt=""

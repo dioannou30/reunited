@@ -91,12 +91,8 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('el' | 'en' | 'ar') | ('el' | 'en' | 'ar')[];
-  globals: {
-    home: Home;
-  };
-  globalsSelect: {
-    home: HomeSelect<false> | HomeSelect<true>;
-  };
+  globals: {};
+  globalsSelect: {};
   locale: 'el' | 'en' | 'ar';
   widgets: {
     collections: CollectionsWidget;
@@ -663,95 +659,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home".
- */
-export interface Home {
-  id: number;
-  hero: {
-    eyebrowLine1: string;
-    eyebrowLine2: string;
-    subtitleLine1: string;
-    subtitleLine2: string;
-    lede: string;
-    primaryCta: string;
-    secondaryCta: string;
-    image?: (number | null) | Media;
-  };
-  yesToTogether: {
-    titleLine1: string;
-    titleLine2: string;
-    text: string;
-    cta: string;
-    points: {
-      icon: 'document' | 'clock' | 'users';
-      title: string;
-      text: string;
-      link?: ('/campaign/sign' | '/issue/family-reunification') | null;
-      id?: string | null;
-    }[];
-  };
-  quote: {
-    /**
-     * Κάθε γραμμή του κειμένου εμφανίζεται σε δική της σειρά.
-     */
-    text: string;
-    name: string;
-    role: string;
-    linkLabel: string;
-    image?: (number | null) | Media;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home_select".
- */
-export interface HomeSelect<T extends boolean = true> {
-  hero?:
-    | T
-    | {
-        eyebrowLine1?: T;
-        eyebrowLine2?: T;
-        subtitleLine1?: T;
-        subtitleLine2?: T;
-        lede?: T;
-        primaryCta?: T;
-        secondaryCta?: T;
-        image?: T;
-      };
-  yesToTogether?:
-    | T
-    | {
-        titleLine1?: T;
-        titleLine2?: T;
-        text?: T;
-        cta?: T;
-        points?:
-          | T
-          | {
-              icon?: T;
-              title?: T;
-              text?: T;
-              link?: T;
-              id?: T;
-            };
-      };
-  quote?:
-    | T
-    | {
-        text?: T;
-        name?: T;
-        role?: T;
-        linkLabel?: T;
-        image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

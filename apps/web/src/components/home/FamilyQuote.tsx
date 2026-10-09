@@ -1,33 +1,29 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRightIcon } from '@/components/icons'
-import type { HomeContent } from '@/content/home'
+import { m } from '@/paraglide/messages'
 import classes from './FamilyQuote.module.css'
 
-export function FamilyQuote({ content: quote }: { content: HomeContent['quote'] }) {
+export function FamilyQuote() {
   return (
     <section className={classes.section} aria-labelledby="family-quote-name">
       <div className={classes.media}>
-        {quote.image ? (
-          <img src={quote.image.src} alt={quote.image.alt} className={classes.frame} />
-        ) : (
-          <div className={classes.frame} aria-hidden="true" />
-        )}
+        <div className={classes.frame} aria-hidden="true" />
       </div>
 
       <figure className={classes.figure}>
         <blockquote className={classes.quote}>
-          {quote.lines.map((line, index) => (
-            <span key={index}>{line}</span>
-          ))}
+          <span>{m.home_quote_line_1()}</span>
+          <span>{m.home_quote_line_2()}</span>
+          <span>{m.home_quote_line_3()}</span>
         </blockquote>
         <figcaption className={classes.caption}>
           <span id="family-quote-name" className={classes.name}>
-            {quote.name}
+            {m.home_quote_name()}
           </span>
-          <span>{quote.role}</span>
+          <span>{m.home_quote_role()}</span>
         </figcaption>
         <Link to="/testimonies/greece" className={classes.link}>
-          {quote.linkLabel}
+          {m.home_quote_link()}
           <span className={classes.circle}>
             <ArrowRightIcon className={classes.arrow} />
           </span>

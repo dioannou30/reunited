@@ -137,13 +137,6 @@
   mask: url("/motifs/torn-mask.svg") no-repeat center / 100% 100%;
 }
 
-img.frame {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
 .olive {
   position: absolute;
   inset-block-start: -2.5rem;

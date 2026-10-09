@@ -70,6 +70,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 - **The language is part of the URL** (`/el/...`, `/en/...`, `/ar/...`). This gives shareable URLs per language, `hreflang` tags and correct social previews.
 - **`lang` and `dir` are set on `<html>` per locale.** Arabic renders RTL, and Mantine's `DirectionProvider` handles RTL inside components. Greek uppercase text drops accents correctly thanks to `lang`.
 - **Use CSS logical properties** from day one, so RTL needs no rework.
+- **All static text is a Paraglide message**, UI labels and page copy alike (decided 2026-10-09). The home page keys are `home_hero_*`, `home_yes_*` and `home_quote_*` in `apps/web/messages/{el,en,ar}.json`. Translations for CMS content (events etc.) will be handled when that content exists.
 - **Arabic is wired in the infrastructure.** Whether it launches with content depends on the campaign providing translations.
 
 ## CMS (`apps/cms`)
@@ -89,10 +90,7 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
   - wired: **form builder** (for "Πάρε μέρος", the get-involved form)
   - deferred until content collections exist: **SEO**, **search**, **redirects** (it refuses an empty collection list)
 - **Roles are defined in code.** Dimitri creates the admin and editor accounts.
-- **Home page (built):** the `home` global holds the hero, the «ναι»/«μαζί» section and the quote, all localized, with optional images from `media`.
-  - The web app reads it in the `/` route loader through a server function (`GET /api/globals/home?locale=…`, 3 s timeout).
-  - Set `CMS_URL` on the web app to switch it on. When `CMS_URL` is unset, the CMS is unreachable, or the global is still empty, the page falls back to `apps/web/src/content/home.ts`, so the live site never breaks.
-  - `pnpm --filter cms seed` fills the global in all three languages from `home.ts`.
+- **The CMS does not hold static page text.** It is for dynamic content such as events. Static pages (the home page included) use Paraglide messages; anything that later needs editing in the CMS moves there case by case.
 - **Planned content model** (derived from the menu doc, to be confirmed):
   - `Pages`: static subpages such as how it started and what we ask for
   - `TeamMembers`
