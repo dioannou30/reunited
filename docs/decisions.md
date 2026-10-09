@@ -167,6 +167,8 @@ Source: the menu doc. Every route lives under the locale prefix (`/el`, `/en`, `
 
 ## Still open (asked the PM)
 
+- **Issue pages:** the process strip tears once, after "positive decision". The real text for case (β) "applications still waiting" (which stalls earlier, before a decision) should be worded to fit, or the strip needs a second tear.
+
 - The documents library is missing from the menu: where does it go?
 - Contact and news: are they in the footer and in "Δράσεις"?
 - "Υπόγραψε" appears twice in the menu: one page or two?

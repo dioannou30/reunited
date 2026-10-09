@@ -25,13 +25,24 @@ export function ProcessStrip({ state }: { state: StripState }) {
             style={{ '--pos': position(index, state) } as CSSProperties}
           >
             <span className={classes.number}>{index + 1}</span>
-            <span className={classes.label}>{step.label()}</span>
+            {state !== 'whole' && index === breakAfter ? (
+              <span className={classes.srOnly}>{note}</span>
+            ) : null}
+            {state === 'whole' ? (
+              <a href={`#step-${index + 1}`} className={classes.label}>
+                {step.label()}
+              </a>
+            ) : (
+              <span className={classes.label}>{step.label()}</span>
+            )}
           </li>
         ))}
         {state !== 'whole' ? (
-          <li className={classes.break} style={{ '--pos': breakAfter + 1 } as CSSProperties}>
-            <span className={classes.srOnly}>{note}</span>
-          </li>
+          <li
+            className={classes.break}
+            aria-hidden="true"
+            style={{ '--pos': breakAfter + 1 } as CSSProperties}
+          />
         ) : null}
       </ol>
     </div>

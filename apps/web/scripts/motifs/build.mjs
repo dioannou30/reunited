@@ -274,6 +274,7 @@ const files = {
   'border-left.svg': keffiyeh(),
   'band.svg': band(),
   'torn-mask.svg': tornMask(),
+  'torn-mask-rough.svg': tornMask({ seed: 73, step: 9, depth: 15 }),
   'brush-underline.svg': `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="24" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M4 15C70 9 150 6 230 7S350 9 396 13" stroke="${colors.red}" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M40 18C120 13 220 11 340 14" stroke="${colors.red}" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".75"/></svg>`,
   'olive-sprig.svg': oliveSprig(),
   'olive-twig.svg': oliveTwig(),

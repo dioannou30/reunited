@@ -16,9 +16,19 @@
   filter: drop-shadow(0 8px 14px rgb(11 13 9 / 14%));
 }
 
-.strip[data-state="torn"],
+.strip[data-state="torn"] {
+  grid-template-rows: repeat(4, auto) 3rem repeat(2, auto);
+}
+
 .strip[data-state="mended"] {
-  grid-template-rows: repeat(4, auto) 2.75rem repeat(2, auto);
+  grid-template-rows: repeat(4, auto) 1rem repeat(2, auto);
+}
+
+.strip[data-state="torn"]::before,
+.strip[data-state="torn"]::after,
+.strip[data-state="mended"]::before,
+.strip[data-state="mended"]::after {
+  mask-image: url("/motifs/torn-mask-rough.svg");
 }
 
 .strip::before,
@@ -47,9 +57,9 @@
   display: none;
 }
 
-.strip[data-state="torn"]::after {
-  opacity: 0.6;
-  transform: rotate(-1.5deg) translateX(0.5rem);
+.strip[data-state="torn"]::after,
+.strip[data-state="torn"] .step[data-after-break] {
+  transform: translateY(1rem) rotate(-2deg);
 }
 
 .step {
@@ -69,11 +79,6 @@
   border-block-start: 1px dashed var(--mantine-color-gray-4);
 }
 
-.strip[data-state="torn"] .step[data-after-break] {
-  opacity: 0.5;
-  transform: rotate(-1.5deg) translateX(0.5rem);
-}
-
 .number {
   font-family: var(--mantine-font-family-headings);
   font-size: 1.5rem;
@@ -83,6 +88,7 @@
 }
 
 .label {
+  text-decoration: none;
   font-family: var(--mantine-font-family-headings);
   font-size: 1.0625rem;
   font-weight: 600;
@@ -97,7 +103,27 @@
 }
 
 .strip[data-state="mended"] .break {
+  z-index: 2;
+  margin-block: -0.75rem;
   background: url("/motifs/stitch-bridge.svg") repeat-x center / 1.1rem 100%;
+}
+
+a.label {
+  text-decoration: underline;
+  text-decoration-color: var(--mantine-color-gray-4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+a.label:hover {
+  text-decoration-color: var(--mantine-color-red-6);
+  text-decoration-thickness: 2px;
+}
+
+a.label:focus-visible {
+  outline: 2px solid var(--mantine-color-red-6);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .srOnly {
@@ -116,10 +142,14 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .strip[data-state="torn"],
-  .strip[data-state="mended"] {
+  .strip[data-state="torn"] {
     grid-template-rows: auto;
     grid-template-columns: repeat(4, minmax(0, 1fr)) 3.5rem repeat(2, minmax(0, 1fr));
+  }
+
+  .strip[data-state="mended"] {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) 1.25rem repeat(2, minmax(0, 1fr));
   }
 
   .strip::before {
@@ -139,7 +169,12 @@
 
   .strip[data-state="torn"]::after,
   .strip[data-state="torn"] .step[data-after-break] {
-    transform: rotate(1.5deg) translateY(0.5rem);
+    transform: translateY(1.75rem) rotate(2.5deg);
+  }
+
+  .strip[data-state="torn"]:dir(rtl)::after,
+  .strip[data-state="torn"]:dir(rtl) .step[data-after-break] {
+    transform: translateY(1.75rem) rotate(-2.5deg);
   }
 
   .step {
@@ -168,6 +203,8 @@
   }
 
   .strip[data-state="mended"] .break {
+    margin-block: 0;
+    margin-inline: -0.85rem;
     background: url("/motifs/stitch-bridge.svg") repeat-y center / 100% 0.85rem;
   }
 }

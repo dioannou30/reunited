@@ -6,7 +6,7 @@ export function ProcessSteps() {
   return (
     <ol className={classes.list}>
       {steps.map((step, index) => (
-        <li key={index} className={classes.item}>
+        <li key={index} id={`step-${index + 1}`} className={classes.item}>
           <span className={classes.number} aria-hidden="true">
             {index + 1}
           </span>

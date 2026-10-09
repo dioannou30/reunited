@@ -9,6 +9,7 @@
 }
 
 .item {
+  scroll-margin-block-start: 2rem;
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: 1rem;
